@@ -2,28 +2,21 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    {
-      "source": "/feeds/:path*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/([0-9]{4})/([0-9]{2})/:slug.html",
-      "destination": "/blog/:slug",
-      "permanent": true
-    }
+    { "source": "/feeds/:path*", "destination": "/", "permanent": true },
+    { "source": "/:year(\\d{4})/:month(\\d{2})/:slug.html", "destination": "/blog/:slug", "permanent": true },
+    { "source": "/:year(\\d{4})/:month(\\d{2})/:slug", "destination": "/blog/:slug", "permanent": true }
   ],
   "rewrites": [
-    {
-      "source": "/blog/:slug",
-      "destination": "/blog/:slug.html"
-    },
-    {
-      "source": "/posts.json",
-      "destination": "/posts.json"
-    }
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+    { "source": "/posts.json", "destination": "/posts.json" }
   ],
   "headers": [
+    {
+      "source": "/blog/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    },
     {
       "source": "/posts.json",
       "headers": [

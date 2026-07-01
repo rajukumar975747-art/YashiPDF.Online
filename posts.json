@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "convert-scanned-images-to-clear-pdf",
+      "title": "Convert scanned images to clear pdf",
+      "summary": "Learn how to convert scanned images to clear PDF document for official use — free online method. Step-by-step guide in Hindi+Engli...",
+      "published": "1/jul/26",
+      "nativePath": "/blog/convert-scanned-images-to-clear-pdf"
+    },
+    {
       "slug": "webp-vs-avif-which-image-format-is-better-for-web-performanc",
       "title": "webp vs avif which image format is better for web performance",
       "summary": "WebP vs AVIF, AVIF image format, WebP compression, best image format for web, image optimization, web performance, AVIF browser su...",

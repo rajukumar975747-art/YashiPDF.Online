@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "how-to-blur-sensitive-information-in-images",
+      "title": "How to blur sensitive information in images",
+      "summary": "Learn how to blur sensitive information in images before uploading — Aadhaar, PAN, bank details, signatures. Free online method, n...",
+      "published": "2/jul/26",
+      "nativePath": "/blog/how-to-blur-sensitive-information-in-images"
+    },
+    {
       "slug": "how-to-resize-and-formulate-scanned-documents-for-csc-digital",
       "title": "How to resize and formulate scanned documents for csc digital",
       "summary": "resize scanned documents for CSC, format documents for digital seva portal, CSC document upload requirements, scan document resize...",

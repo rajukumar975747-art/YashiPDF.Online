@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "qr-code-generator-tool-use",
+      "title": "QR code generator tool use",
+      "summary": "QR Generator tool ka pura guide — kaise use karein, real examples, best practices. Business cards, websites, UPI payments, documen...",
+      "published": "3/jul/26",
+      "nativePath": "/blog/qr-code-generator-tool-use"
+    },
+    {
       "slug": "convert-multiple-images-into-one-pdf-without-changing-order",
       "title": "Convert multiple images into one pdf without changing order",
       "summary": "Learn how to convert multiple images into one PDF without changing order. Step-by-step guide, tips, and best practices for perfect...",

@@ -1,6 +1,48 @@
 {
   "posts": [
     {
+      "slug": "qr-code-generator-tool-use",
+      "title": "QR code generator tool use",
+      "summary": "QR Generator tool ka pura guide — kaise use karein, real examples, best practices. Business cards, websites, UPI payments, documen...",
+      "published": "3/jul/26",
+      "nativePath": "/blog/qr-code-generator-tool-use"
+    },
+    {
+      "slug": "convert-multiple-images-into-one-pdf-without-changing-order",
+      "title": "Convert multiple images into one pdf without changing order",
+      "summary": "Learn how to convert multiple images into one PDF without changing order. Step-by-step guide, tips, and best practices for perfect...",
+      "published": "2/jul/26",
+      "nativePath": "/blog/convert-multiple-images-into-one-pdf-without-changing-order"
+    },
+    {
+      "slug": "how-to-remove-blank-pages-from-pdf-online-free",
+      "title": "How to remove blank pages from pdf online free",
+      "summary": "Remove blank pages from pdf online free, delete empty pages pdf, remove blank pages pdf, online pdf page remover, clean pdf remove...",
+      "published": "2/jul/26",
+      "nativePath": "/blog/how-to-remove-blank-pages-from-pdf-online-free"
+    },
+    {
+      "slug": "how-to-blur-sensitive-information-in-images",
+      "title": "How to blur sensitive information in images",
+      "summary": "Learn how to blur sensitive information in images before uploading — Aadhaar, PAN, bank details, signatures. Free online method, n...",
+      "published": "2/jul/26",
+      "nativePath": "/blog/how-to-blur-sensitive-information-in-images"
+    },
+    {
+      "slug": "how-to-resize-and-formulate-scanned-documents-for-csc-digital",
+      "title": "How to resize and formulate scanned documents for csc digital",
+      "summary": "resize scanned documents for CSC, format documents for digital seva portal, CSC document upload requirements, scan document resize...",
+      "published": "2/jul/26",
+      "nativePath": "/blog/how-to-resize-and-formulate-scanned-documents-for-csc-digital"
+    },
+    {
+      "slug": "how-to-create-a-clear-digital-signature-image-for-pdf-signing",
+      "title": "How to create a clear digital signature image for pdf signing",
+      "summary": "create digital signature image, clear signature for PDF, transparent signature PNG, digital signature online free, signature image...",
+      "published": "2/jul/26",
+      "nativePath": "/blog/how-to-create-a-clear-digital-signature-image-for-pdf-signing"
+    },
+    {
       "slug": "how-to-make-passport-size-photo-from-mobile",
       "title": "How to make passport size photo from mobile",
       "summary": "How to make passport size photo from mobile, passport photo maker mobile free, create passport photo on phone, passport size photo...",

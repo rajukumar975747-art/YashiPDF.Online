@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "pdf-a-vs-pdf-whats-the-difference",
+      "title": "PSD/A vs PDF whats the difference",
+      "summary": "Learn the key differences between PDF and PDF/A. Discover how to convert PDF to PDF/A using online tools, desktop software, and mo...",
+      "published": "6/jul/26",
+      "nativePath": "/blog/pdf-a-vs-pdf-whats-the-difference"
+    },
+    {
       "slug": "digitally-sign-pdf-without-printing",
       "title": "Digitally sign pdf without printing",
       "summary": "Learn how to digitally sign a PDF without printing, scanning, or using a pen. A complete step-by-step guide with real examples, mi...",

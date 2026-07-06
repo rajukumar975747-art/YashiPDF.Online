@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "compress-pdf-for-email-attachments",
+      "title": "Compress pdf for email attachments",
+      "summary": "ow to compress PDF for email attachments using online tools, desktop software, and mobile apps. Reduce file size without losing qu...",
+      "published": "6/jul/26",
+      "nativePath": "/blog/compress-pdf-for-email-attachments"
+    },
+    {
       "slug": "pdf-a-vs-pdf-whats-the-difference",
       "title": "PSD/A vs PDF whats the difference",
       "summary": "Learn the key differences between PDF and PDF/A. Discover how to convert PDF to PDF/A using online tools, desktop software, and mo...",

@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "how-to-flatten-a-pdf-for-printing-or-upload",
+      "title": "How to flatten a pdf for printing or upload",
+      "summary": "How to flatten a PDF properly before printing or uploading it to a government portal, job application, or online form. Step-by-ste...",
+      "published": "7/jul/26",
+      "nativePath": "/blog/how-to-flatten-a-pdf-for-printing-or-upload"
+    },
+    {
       "slug": "convert-pdf-to-black-and-white-for-printing",
       "title": "Convert pdf to black and white for printing",
       "summary": "How to convert a PDF to black and white for printing in seconds — save ink, reduce file size, and get clean, professional print-re...",

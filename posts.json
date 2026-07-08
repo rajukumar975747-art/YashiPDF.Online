@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "how-to-remove-metadata-from-images-before-sharing",
+      "title": "How to remove metadata from images before sharing",
+      "summary": "Learn how to remove hidden metadata (location, device info, timestamps) from photos before sharing them online. Step-by-step guide...",
+      "published": "8/jul/26",
+      "nativePath": "/blog/how-to-remove-metadata-from-images-before-sharing"
+    },
+    {
       "slug": "how-to-flatten-a-pdf-for-printing-or-upload",
       "title": "How to flatten a pdf for printing or upload",
       "summary": "How to flatten a PDF properly before printing or uploading it to a government portal, job application, or online form. Step-by-ste...",

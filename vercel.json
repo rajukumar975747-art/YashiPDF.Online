@@ -5,8 +5,6 @@
     { "source": "/feeds/:path*", "destination": "/", "permanent": true },
     { "source": "/:year(\\d{4})/:month(\\d{2})/:slug.html", "destination": "/blog/:slug", "permanent": true },
     { "source": "/:year(\\d{4})/:month(\\d{2})/:slug", "destination": "/blog/:slug", "permanent": true },
-    { "source": "/:year(\\d{4})/:month(\\d{2})/:slug.html\\?m=1", "destination": "/blog/:slug", "permanent": true },
-    { "source": "/blog/:slug\\?m=1", "destination": "/blog/:slug", "permanent": true },
     { "source": "/:path*\\?m=1", "destination": "/:path*", "permanent": true }
   ],
   "rewrites": [
@@ -27,19 +25,20 @@
       "source": "/sitemap.xml",
       "headers": [
         { "key": "Content-Type", "value": "application/xml" },
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate, proxy-revalidate" }
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/favicon.png",
+      "headers": [
+        { "key": "Content-Type", "value": "image/png" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
       ]
     },
     {
       "source": "/posts.json",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-	{
-  	"source": "/favicon.png",
-  "headers": [
-    { "key": "Content-Type", "value": "image/png" }
-  ]
-}
       ]
     }
   ]

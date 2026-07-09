@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "how-to-create-fillable-pdf-forms",
+      "title": "How to create fillable pdf forms",
+      "summary": "Learn how to create fillable PDF forms online step by step - no Adobe Acrobat needed. Complete guide with real examples, mistakes ...",
+      "published": "9/jul/26",
+      "nativePath": "/blog/how-to-create-fillable-pdf-forms"
+    },
+    {
       "slug": "convert-tiff-to-gpj-online",
       "title": "Convert TIFF to GPJ online",
       "summary": "Learn how to convert TIFF to JPG online in seconds — reduce file size, fix compatibility issues, and get web-ready images. Complet...",

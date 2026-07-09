@@ -15,6 +15,7 @@
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/ads.txt", "destination": "/ads.txt" },
     { "source": "/posts.json", "destination": "/posts.json" }
+    { "source": "/favicon.png", "destination": "/favicon.png" }
   ],
   "headers": [
     {

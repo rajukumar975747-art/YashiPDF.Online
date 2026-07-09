@@ -1,6 +1,62 @@
 {
   "posts": [
     {
+      "slug": "how-to-create-fillable-pdf-forms",
+      "title": "How to create fillable pdf forms",
+      "summary": "Learn how to create fillable PDF forms online step by step - no Adobe Acrobat needed. Complete guide with real examples, mistakes ...",
+      "published": "9/jul/26",
+      "nativePath": "/blog/how-to-create-fillable-pdf-forms"
+    },
+    {
+      "slug": "convert-tiff-to-gpj-online",
+      "title": "Convert TIFF to GPJ online",
+      "summary": "Learn how to convert TIFF to JPG online in seconds — reduce file size, fix compatibility issues, and get web-ready images. Complet...",
+      "published": "8/jul/26",
+      "nativePath": "/blog/convert-tiff-to-gpj-online"
+    },
+    {
+      "slug": "how-to-remove-metadata-from-images-before-sharing",
+      "title": "How to remove metadata from images before sharing",
+      "summary": "Learn how to remove hidden metadata (location, device info, timestamps) from photos before sharing them online. Step-by-step guide...",
+      "published": "8/jul/26",
+      "nativePath": "/blog/how-to-remove-metadata-from-images-before-sharing"
+    },
+    {
+      "slug": "how-to-flatten-a-pdf-for-printing-or-upload",
+      "title": "How to flatten a pdf for printing or upload",
+      "summary": "How to flatten a PDF properly before printing or uploading it to a government portal, job application, or online form. Step-by-ste...",
+      "published": "7/jul/26",
+      "nativePath": "/blog/how-to-flatten-a-pdf-for-printing-or-upload"
+    },
+    {
+      "slug": "convert-pdf-to-black-and-white-for-printing",
+      "title": "Convert pdf to black and white for printing",
+      "summary": "How to convert a PDF to black and white for printing in seconds — save ink, reduce file size, and get clean, professional print-re...",
+      "published": "7/jul/26",
+      "nativePath": "/blog/convert-pdf-to-black-and-white-for-printing"
+    },
+    {
+      "slug": "compress-pdf-for-email-attachments",
+      "title": "Compress pdf for email attachments",
+      "summary": "ow to compress PDF for email attachments using online tools, desktop software, and mobile apps. Reduce file size without losing qu...",
+      "published": "6/jul/26",
+      "nativePath": "/blog/compress-pdf-for-email-attachments"
+    },
+    {
+      "slug": "pdf-a-vs-pdf-whats-the-difference",
+      "title": "PSD/A vs PDF whats the difference",
+      "summary": "Learn the key differences between PDF and PDF/A. Discover how to convert PDF to PDF/A using online tools, desktop software, and mo...",
+      "published": "6/jul/26",
+      "nativePath": "/blog/pdf-a-vs-pdf-whats-the-difference"
+    },
+    {
+      "slug": "digitally-sign-pdf-without-printing",
+      "title": "Digitally sign pdf without printing",
+      "summary": "Learn how to digitally sign a PDF without printing, scanning, or using a pen. A complete step-by-step guide with real examples, mi...",
+      "published": "6/jul/26",
+      "nativePath": "/blog/digitally-sign-pdf-without-printing"
+    },
+    {
       "slug": "resize-photo-online-for-forms-and-applications",
       "title": "Resize photo online for forms and applications",
       "summary": "Resize photo online for forms and applications using YashiPDF.online. Free tool to set exact pixels, file size, and format for gov...",

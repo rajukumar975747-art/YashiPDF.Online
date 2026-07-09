@@ -15,7 +15,6 @@
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/ads.txt", "destination": "/ads.txt" },
     { "source": "/posts.json", "destination": "/posts.json" }
-    { "source": "/favicon.png", "destination": "/favicon.png" }
   ],
   "headers": [
     {
@@ -35,6 +34,12 @@
       "source": "/posts.json",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+	{
+  	"source": "/favicon.png",
+  "headers": [
+    { "key": "Content-Type", "value": "image/png" }
+  ]
+}
       ]
     }
   ]

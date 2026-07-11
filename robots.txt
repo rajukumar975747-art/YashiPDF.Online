@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /*?m=1
+Disallow: /api/
+Disallow: /admin/
 
 Sitemap: https://www.yashipdf.online/sitemap.xml

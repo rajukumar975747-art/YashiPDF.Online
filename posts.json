@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "electronic-signature-vs-digital-signature-difference",
+      "title": "Electronic signature vs digital signature difference",
+      "summary": "A complete comparison of electronic signatures and digital signatures, with real methods, tools, and a decision guide to help you ...",
+      "published": "11/jul/26",
+      "nativePath": "/blog/electronic-signature-vs-digital-signature-difference"
+    },
+    {
       "slug": "convert-tiff-to-jpg-online",
       "title": "Convert TIFF to JPG online",
       "summary": "Learn how to convert TIFF to JPG online in seconds — reduce file size, fix compatibility issues, and get web-ready images. Complet...",

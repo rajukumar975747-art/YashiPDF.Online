@@ -7,145 +7,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.yashipdf.online/about</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/contact</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/privacy</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/terms</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/disclaimer</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/jpg-png</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/png-jpg</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/webp-jpg</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/heic-jpg</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/compress</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/resize</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/crop</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/remove-bg</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/grayscale</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blur</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/sepia</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/invert</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/img-pdf</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/pdf-split</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/pdf-lock</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/qr-gen</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/base64-img</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/img-base64</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/best-dpi-for-passport-photos-printing</loc>
+    <loc>https://www.yashipdf.online/blog/electronic-signature-vs-digital-signature-difference</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -163,74 +25,200 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.yashipdf.online/blog/best-image-format-for-website-speed</loc>
-    <lastmod>2026-07-11</lastmod>
+    <loc>https://www.yashipdf.online/blog/how-to-create-fillable-pdf-forms</loc>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.yashipdf.online/blog/best-image-size-for-whatsapp-dp</loc>
-    <lastmod>2026-07-11</lastmod>
+    <loc>https://www.yashipdf.online/blog/how-to-remove-metadata-from-images-before-sharing</loc>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.yashipdf.online/blog/best-image-size-for-youtube-thumbnail</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/compress-image-to-50kb-online-free</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/compress-pdf-for-email-attachments</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/convert-image-to-ico-online-free-favicon-maker</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/convert-multiple-images-into-one-pdf-without-changing-order</loc>
-    <lastmod>2026-07-11</lastmod>
+    <loc>https://www.yashipdf.online/blog/how-to-flatten-a-pdf-for-printing-or-upload</loc>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/convert-pdf-to-black-and-white-for-printing</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.yashipdf.online/blog/convert-photo-to-300-dpi-online</loc>
-    <lastmod>2026-07-11</lastmod>
+    <loc>https://www.yashipdf.online/blog/compress-pdf-for-email-attachments</loc>
+    <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.yashipdf.online/blog/convert-photo-to-black-and-white-online</loc>
-    <lastmod>2026-07-11</lastmod>
+    <loc>https://www.yashipdf.online/blog/pdf-a-vs-pdf-whats-the-difference</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/digitally-sign-pdf-without-printing</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/resize-photo-online-for-forms-and-applications</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/split-pdf-pages-online-free</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/lock-pdf-with-password-online-free</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/invert-colors-tool-se-creative-image-effects-kaise-banayein</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/grayscale-filter-use-in-image-editing</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/qr-code-generator-tool-use</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/convert-multiple-images-into-one-pdf-without-changing-order</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/how-to-remove-blank-pages-from-pdf-online-free</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/how-to-blur-sensitive-information-in-images</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/how-to-resize-and-formulate-scanned-documents-for-csc-digital</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/how-to-create-a-clear-digital-signature-image-for-pdf-signing</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/how-to-make-passport-size-photo-from-mobile</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/convert-scanned-images-to-clear-pdf</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/webp-vs-avif-which-image-format-is-better-for-web-performanc</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/convert-photo-to-300-dpi-online</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/best-image-format-for-website-speed</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/reduce-image-size-for-email-attachment</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/best-image-size-for-youtube-thumbnail</loc>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/crop-image-without-losing-quality-free-online-guide</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/convert-image-to-ico-online-free-favicon-maker</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/how-to-improve-image-quality-online</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/extract-text-from-image-ocr-online-free</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/convert-photo-to-black-and-white-online</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/best-dpi-for-passport-photos-printing</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/best-image-size-for-whatsapp-dp</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yashipdf.online/blog/compress-image-to-50kb-online-free</loc>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -241,44 +229,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.yashipdf.online/blog/digitally-sign-pdf-without-printing</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/extract-text-from-image-ocr-online-free</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/grayscale-filter-use-in-image-editing</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.yashipdf.online/blog/heic-to-jpg-converter-online-free</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/how-to-blur-sensitive-information-in-images</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/how-to-check-photo-size-in-kb-on-android</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/how-to-convert-any-image-format-online</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -289,86 +253,26 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.yashipdf.online/blog/how-to-create-a-clear-digital-signature-image-for-pdf-signing</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/how-to-create-fillable-pdf-forms</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.yashipdf.online/blog/how-to-fix-photo-size-should-be-between</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/how-to-flatten-a-pdf-for-printing-or-upload</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/how-to-improve-image-quality-online</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/how-to-make-passport-size-photo-from-mobile</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/how-to-make-white-background-photo</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/how-to-reduce-image-size-in-kb-without</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/how-to-remove-blank-pages-from-pdf-online-free</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/how-to-remove-metadata-from-images-before-sharing</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/how-to-resize-and-formulate-scanned-documents-for-csc-digital</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/how-to-resize-images-for-linkedin-profile-and-banner</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/image-compression-vs-resizing-whats</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/invert-colors-tool-se-creative-image-effects-kaise-banayein</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -386,73 +290,37 @@
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/jpg-vs-png-which-format-should-you-use</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/lock-pdf-with-password-online-free</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/lossy-vs-lossless-compression-explained</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/passport-size-photo-maker-online-free</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/pdf-a-vs-pdf-whats-the-difference</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/png-to-jpg-converter-ka-use-kaise</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/qr-code-generator-tool-use</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/reduce-image-size-for-email-attachment</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/resize-image-to-200x230-pixels-online</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/resize-photo-online-for-forms-and-applications</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/rrb-image-size-guide-2026-photo</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/split-pdf-pages-online-free</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -464,25 +332,19 @@
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/webp-to-jpg-conversion-online-kaise</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.yashipdf.online/blog/webp-vs-avif-which-image-format-is-better-for-web-performanc</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/webp-vs-jpg-vs-png-which-method-is-best</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yashipdf.online/blog/why-image-upload-fails-in-sscupsc-forms</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

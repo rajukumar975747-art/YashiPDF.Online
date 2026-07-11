@@ -407,41 +407,6 @@ function updateMetaDescription(text){
             </div>
             <p>&copy; 2026 YashiPDF.Online by Raju. All rights reserved.</p>
         </footer>
-        
-        <div id="follow-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden p-4">
-            <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="window.closeFollowModal()"></div>
-            <div class="relative w-full max-w-sm p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl z-10 animate-fade-in text-center">
-                <button onclick="window.closeFollowModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg">
-                    <i class="fas fa-times"></i>
-                </button>
-                <div class="w-16 h-16 bg-orange-500/10 text-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                    <i class="fas fa-bell animate-swing"></i>
-                </div>
-                <h3 class="text-xl font-heading font-bold text-slate-900 dark:text-white mb-2">Join Our Community!</h3>
-                <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-                    Hamare naye informative posts, tools aur updates ki notification sabse pehle pane ke liye follow karein.
-                </p>
-                <div class="flex flex-col gap-2">
-                    <a href="https://www.blogger.com/follow-blog.g?blogID=4495705403940319469" target="_blank" onclick="window.closeFollowModal()" class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl shadow-lg shadow-orange-500/20 transition-all text-sm flex items-center justify-center gap-2">
-                        <i class="fas fa-check-circle"></i> Confirm Follow
-                    </a>
-                    <button onclick="window.closeFollowModal()" class="w-full py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold rounded-xl transition-all text-xs">
-                        Not Now
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            window.openFollowModal = function() {
-                const modal = document.getElementById('follow-modal');
-                if(modal) modal.classList.remove('hidden');
-            };
-            window.closeFollowModal = function() {
-                const modal = document.getElementById('follow-modal');
-                if(modal) modal.classList.add('hidden');
-            };
-        </script>
     </main>
 
     <script>
@@ -940,18 +905,6 @@ function updateMetaDescription(text){
                     });
                     navLinks.appendChild(group);
                 }
-
-                // Custom Follow Button with Popup Trigger
-                const followGroup = document.createElement('div');
-                followGroup.className = 'mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 px-2';
-                followGroup.innerHTML = `
-                    <div class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">Community</div>
-                    <button onclick="window.openFollowModal()" class="w-full px-3 py-2.5 text-sm bg-gradient-to-r from-orange-500 to-amber-600 text-white font-bold rounded-lg shadow-md hover:from-orange-600 hover:to-amber-700 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                        <i class="fas fa-rss text-base"></i>
-                        <span>Follow Blog</span>
-                    </button>
-                `;
-                navLinks.appendChild(followGroup);
             }
 
             // Universal SPA Core Routing Engine
@@ -1097,6 +1050,13 @@ function updateMetaDescription(text){
                 appContainer.appendChild(grid);
             }
 
+            function acceptedFileTypes(toolId) {
+                if (toolId === 'pdf-split' || toolId === 'pdf-lock') return 'application/pdf,.pdf';
+                if (toolId === 'heic-jpg') return 'image/heic,image/heif,.heic,.heif';
+                if (toolId === 'base64-img' || toolId === 'qr-gen') return '';
+                return 'image/*';
+            }
+
             function renderToolInterface(toolId) {
                 const tool = tools.find(t => t.id === toolId);
                 const localTitle = tool.title[currentLanguage] || tool.title['en'];
@@ -1133,7 +1093,7 @@ tool
                                 <i class="fas fa-cloud-upload-alt text-5xl text-sky-500 mb-4 animate-bounce"></i>
                                 <p class="text-lg font-semibold text-slate-800 dark:text-white mb-1">${i18n[currentLanguage].drag_drop}</p>
                                 <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">${i18n[currentLanguage].or_click}</p>
-                                <input type="file" id="file-input" class="hidden" ${toolId === 'img-pdf' ? 'multiple' : ''}/>
+                                <input type="file" id="file-input" class="hidden" accept="${acceptedFileTypes(toolId)}" ${toolId === 'img-pdf' ? 'multiple' : ''}/>
                                 <button onclick="document.getElementById('file-input').click()" class="bg-sky-500 hover:bg-sky-600 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg shadow-sky-500/20 text-sm">
                                     ${i18n[currentLanguage].select_file}
                                 </button>
@@ -2246,6 +2206,12 @@ seoContainer.innerHTML = `
 
             function handleToolEngineCoreInit(files, toolId) {
                 if (files.length === 0 && toolId !== 'qr-gen' && toolId !== 'base64-img') return;
+                const firstFile = files[0];
+
+                if ((toolId === 'pdf-split' || toolId === 'pdf-lock') && firstFile && firstFile.type !== 'application/pdf' && !firstFile.name.toLowerCase().endsWith('.pdf')) {
+                    alert('Please select a valid PDF file.');
+                    return;
+                }
                 
                 const uploadUI = document.getElementById('upload-ui');
                 const previewArea = document.getElementById('preview-area');
@@ -2349,12 +2315,17 @@ seoContainer.innerHTML = `
                     if(toolId === 'sepia') ctx.filter = 'sepia(100%)';
                     if(toolId === 'invert') ctx.filter = 'invert(100%)';
 
-                    ctx.drawImage(img, 0, 0);
-                    setProgress(75, "Encoding stream array buffer...");
-
                     let mime = 'image/jpeg', extension = 'jpg';
                     if (toolId === 'jpg-png') { mime = 'image/png'; extension = 'png'; }
                     else if (toolId === 'webp-jpg') { mime = 'image/jpeg'; extension = 'jpg'; }
+
+                    if (mime === 'image/jpeg') {
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    }
+
+                    ctx.drawImage(img, 0, 0);
+                    setProgress(75, "Encoding stream array buffer...");
 
                     canvas.toBlob((blob) => {
                         setProgress(100, "Asset fully materialized.");
@@ -2617,31 +2588,39 @@ seoContainer.innerHTML = `
                 controls.innerHTML = `
                     <div class="max-w-xs mx-auto space-y-2">
                         <label class="block text-xs font-bold text-slate-500 text-center">Set User Access Encryption Password</label>
-                        <input type="text" id="pdf-password-key" placeholder="Enter Lock Code Key" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-center text-sm p-2 rounded font-sans text-slate-800 dark:text-white"/>
-                        <button id="run-pdf-lock" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 rounded text-xs transition-all shadow-sm">Locked PDF</button>
+                        <input type="password" id="pdf-password-key" placeholder="Enter PDF password" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-center text-sm p-2 rounded font-sans text-slate-800 dark:text-white"/>
+                        <button id="run-pdf-lock" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 rounded text-xs transition-all shadow-sm">Lock PDF</button>
                     </div>
                 `;
 
                 document.getElementById('run-pdf-lock').onclick = async () => {
                     const pass = document.getElementById('pdf-password-key').value;
-                    if(!pass) { alert("Password initialization value required tokens constraint."); return; }
+                    if(!pass) { alert("Please enter a password to lock this PDF."); return; }
                     
                     try {
-                        setProgress(30, "Reading raw binary file streams arrays...");
-                        const fileBuffer = await file.arrayBuffer();
-                        
-                        setProgress(60, "Injecting runtime file protection wrapper layers...");
-                        const doc = await PDFLib.PDFDocument.load(fileBuffer);
-                        
-                        const encryptedBytes = await doc.save();
-                        const targetBlob = new Blob([encryptedBytes], {type: "application/pdf"});
-                        
-                        setProgress(90, "Security matrix layout operations verified.");
+                        setProgress(20, "Uploading PDF for password protection...");
+                        const payload = new FormData();
+                        payload.append('file', file);
+                        payload.append('password', pass);
+
+                        const response = await fetch('/api/lock-pdf', {
+                            method: 'POST',
+                            body: payload
+                        });
+
+                        if(!response.ok) {
+                            const message = await response.text();
+                            throw new Error(message || 'Unable to lock PDF.');
+                        }
+
+                        setProgress(80, "Downloading encrypted PDF...");
+                        const targetBlob = await response.blob();
                         outputDownloadAsset(targetBlob, `yashipdf_secured_locked.pdf`);
-                        setProgress(100, "Complete");
+                        setProgress(100, "PDF locked successfully.");
+                        clearProgress();
                     } catch(ex) {
                         console.error(ex);
-                        setProgress(0, "Security operational context fault failure.");
+                        setProgress(0, "PDF lock failed. Please deploy the /api/lock-pdf function or try a valid unlocked PDF.");
                     }
                 };
             }
@@ -2649,6 +2628,9 @@ seoContainer.innerHTML = `
             function setupQrGeneratorUI() {
                 const preview = document.getElementById('preview-area');
                 const controls = document.getElementById('controls-area');
+                const uploadUI = document.getElementById('upload-ui');
+                if(uploadUI) uploadUI.classList.add('hidden');
+                if(preview) preview.classList.remove('hidden');
                 if(preview) preview.innerHTML = `<div id="qr-target-render-canvas" class="p-4 bg-white rounded-lg shadow-inner inline-block"></div>`;
                 
                 controls.classList.remove('hidden');
@@ -2750,6 +2732,9 @@ seoContainer.innerHTML = `
             function setupBase64DecoderUI() {
                 const preview = document.getElementById('preview-area');
                 const controls = document.getElementById('controls-area');
+                const uploadUI = document.getElementById('upload-ui');
+                if(uploadUI) uploadUI.classList.add('hidden');
+                if(preview) preview.classList.remove('hidden');
                 preview.innerHTML = `<div id="decoder-render-scope" class="text-center"></div>`;
                 controls.classList.remove('hidden');
                 controls.innerHTML = `
@@ -2803,7 +2788,6 @@ seoContainer.innerHTML = `
                                     id: idx + 1,
                                     title: post.title,
                                     summary: post.summary,
-                                    thumbnail: "https://via.placeholder.com/600x400/0ea5e9/ffffff?text=YashiPDF+Article",
                                     published: post.published,
                                     nativePath: post.nativePath
                                 };
@@ -2832,16 +2816,17 @@ seoContainer.innerHTML = `
                     return;
                 }
 
-                let htmlContentBuffer = ['<div class="grid grid-cols-1 gap-6">'];
-                postsArray.forEach((post, index) => {
-                    const isHiddenClass = index >= 2 ? 'hidden extra-article' : '';
+                const expanded = Boolean(window.articlesExpanded);
+                const visiblePosts = expanded ? postsArray : postsArray.slice(0, 4);
+                const articleListClass = expanded
+                    ? 'grid grid-cols-1 gap-4 max-h-[520px] overflow-y-auto pr-2 custom-scroll'
+                    : 'grid grid-cols-1 gap-4';
 
+                let htmlContentBuffer = [`<div id="latest-articles-box" class="${articleListClass}">`];
+                visiblePosts.forEach((post) => {
                     const articleHref = post.nativePath ? post.nativePath : '#article/' + post.id;
                     htmlContentBuffer.push(`
-                        <div class="${isHiddenClass} glass-card p-5 rounded-xl flex flex-col md:flex-row gap-5 items-start md:items-center border border-slate-100 dark:border-slate-800/60 transition-all duration-300 hover:border-sky-500">
-                            <a href="${articleHref}" class="cursor-pointer shrink-0 w-full md:w-48 h-32 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800/50 block">
-                                <img src="${post.thumbnail}" alt="Blog Thumbnail" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" onerror="this.src='https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Article'"/>
-                            </a>
+                        <article class="glass-card p-5 rounded-xl border border-slate-100 dark:border-slate-800/60 transition-colors duration-200 hover:border-sky-500">
                             <div class="flex-1 w-full">
                                 <a href="${articleHref}" class="block">
                                     <h3 class="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug hover:text-sky-500 transition-colors cursor-pointer">
@@ -2853,16 +2838,16 @@ seoContainer.innerHTML = `
                                     Read Article <i class="fas fa-arrow-right text-[10px]"></i>
                                 </a>
                             </div>
-                        </div>
+                        </article>
                     `);
                 });
                 htmlContentBuffer.push('</div>');
 
-                if (postsArray.length > 2) {
+                if (postsArray.length > 4) {
                     htmlContentBuffer.push(`
                         <div class="text-center mt-8" id="read-more-btn-container">
                             <button onclick="window.toggleMoreArticles()" class="px-6 py-2.5 bg-sky-500 hover:bg-sky-600 text-white rounded-lg font-semibold text-sm transition-all shadow-md inline-flex items-center gap-2">
-                                <span>Read More Articles</span> <i class="fas fa-chevron-down text-xs"></i>
+                                <span>${expanded ? 'Show Less Articles' : 'Read More Articles'}</span> <i class="fas ${expanded ? 'fa-chevron-up' : 'fa-chevron-down'} text-xs"></i>
                             </button>
                         </div>
                     `);
@@ -2872,14 +2857,9 @@ seoContainer.innerHTML = `
             }
 
             window.toggleMoreArticles = function() {
-                const extraArticles = document.querySelectorAll('.extra-article');
-                const btnContainer = document.getElementById('read-more-btn-container');
-                
-                extraArticles.forEach(el => {
-                    el.classList.remove('hidden');
-                });
-                
-                if(btnContainer) btnContainer.remove(); 
+                window.articlesExpanded = !window.articlesExpanded;
+                const container = document.getElementById('custom-posts-container');
+                renderArticlesListGrid(window.globalHeadlessPostsStore || [], container);
             };
 
             function renderArticleDetailView(postId) {

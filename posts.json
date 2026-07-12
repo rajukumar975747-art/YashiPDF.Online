@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "how-to-archive-documents-using-pdf/a",
+      "title": "How to archive documents using PDF/A",
+      "summary": "Learn how to convert and save your important documents in PDF/A format for long-term archiving — so they open correctly even after...",
+      "published": "12/jul/26",
+      "nativePath": "/blog/how-to-archive-documents-using-pdf/a"
+    },
+    {
       "slug": "best-practices-for-sharing-documents-securely-online",
       "title": "Best practices for sharing documents securely online",
       "summary": "A practical guide to safely sharing sensitive documents like resumes, ID proofs, and contracts online — password protection, metad...",

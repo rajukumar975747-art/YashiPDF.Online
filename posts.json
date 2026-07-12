@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "best-practices-for-sharing-documents-securely-online",
+      "title": "Best practices for sharing documents securely online",
+      "summary": "A practical guide to safely sharing sensitive documents like resumes, ID proofs, and contracts online — password protection, metad...",
+      "published": "12/jul/26",
+      "nativePath": "/blog/best-practices-for-sharing-documents-securely-online"
+    },
+    {
       "slug": "electronic-signature-vs-digital-signature-difference",
       "title": "Electronic signature vs digital signature difference",
       "summary": "A complete comparison of electronic signatures and digital signatures, with real methods, tools, and a decision guide to help you ...",

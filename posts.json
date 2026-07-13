@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "pdf-file-wont-open-common-fixes",
+      "title": "PDF file wont open common fixes",
+      "summary": "PDF file won't open on your computer or phone? Here are the real, tested reasons this happens and step-by-step fixes that actually...",
+      "published": "13/jul/26",
+      "nativePath": "/blog/pdf-file-wont-open-common-fixes"
+    },
+    {
       "slug": "how-to-archive-documents-using-pdf/a",
       "title": "How to archive documents using PDF/A",
       "summary": "Learn how to convert and save your important documents in PDF/A format for long-term archiving — so they open correctly even after...",

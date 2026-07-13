@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "best file format for digital documents",
+      "title": "Best file format for digital documents",
+      "summary": "Complete comparison of PDF, DOCX, and ODT formats with practical tips for choosing the right format for every situation.",
+      "published": "13/jul/26",
+      "nativePath": "/blog/best file format for digital documents"
+    },
+    {
       "slug": "pdf-file-wont-open-common-fixes",
       "title": "PDF file wont open common fixes",
       "summary": "PDF file won't open on your computer or phone? Here are the real, tested reasons this happens and step-by-step fixes that actually...",

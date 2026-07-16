@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "slug": "how-to-resize-multiple-images-at-once",
+      "title": "How to resize multiple images at once",
+      "summary": "Learn how to resize multiple images at once using free online batch tools, built-in Windows/Mac features, and command-line utiliti...",
+      "published": "16/jul/26",
+      "nativePath": "/blog/how-to-resize-multiple-images-at-once"
+    },
+    {
       "slug": "how-to-convert-pdf-to-html-without-losing-formatting",
       "title": "How to convert pdf to html without losing formatting",
       "summary": "Convert pdf to html without losing formatting, pdf to html converter, pdf to html online, convert pdf to web page, pdf html conver...",

@@ -1,4 +1,4 @@
-{
+﻿{
   "posts": [
     {
       "slug": "qr-generator-business-study-social-media-kaise-use-karein",
@@ -50,11 +50,11 @@
       "nativePath": "/blog/how-to-extract-specific-pages-from-a-pdf"
     },
     {
-      "slug": "best file format for digital documents",
+      "slug": "best-file-format-for-digital-documents",
       "title": "Best file format for digital documents",
       "summary": "Complete comparison of PDF, DOCX, and ODT formats with practical tips for choosing the right format for every situation.",
       "published": "13/jul/26",
-      "nativePath": "/blog/best file format for digital documents"
+      "nativePath": "/blog/best-file-format-for-digital-documents"
     },
     {
       "slug": "pdf-file-wont-open-common-fixes",
@@ -64,16 +64,16 @@
       "nativePath": "/blog/pdf-file-wont-open-common-fixes"
     },
     {
-      "slug": "how-to-archive-documents-using-pdf/a",
+      "slug": "how-to-archive-documents-using-pdf-a",
       "title": "How to archive documents using PDF/A",
-      "summary": "Learn how to convert and save your important documents in PDF/A format for long-term archiving — so they open correctly even after...",
+      "summary": "Learn how to convert and save your important documents in PDF/A format for long-term archiving â€” so they open correctly even after...",
       "published": "12/jul/26",
-      "nativePath": "/blog/how-to-archive-documents-using-pdf/a"
+      "nativePath": "/blog/how-to-archive-documents-using-pdf-a"
     },
     {
       "slug": "best-practices-for-sharing-documents-securely-online",
       "title": "Best practices for sharing documents securely online",
-      "summary": "A practical guide to safely sharing sensitive documents like resumes, ID proofs, and contracts online — password protection, metad...",
+      "summary": "A practical guide to safely sharing sensitive documents like resumes, ID proofs, and contracts online â€” password protection, metad...",
       "published": "12/jul/26",
       "nativePath": "/blog/best-practices-for-sharing-documents-securely-online"
     },
@@ -87,7 +87,7 @@
     {
       "slug": "convert-tiff-to-jpg-online",
       "title": "Convert TIFF to JPG online",
-      "summary": "Learn how to convert TIFF to JPG online in seconds — reduce file size, fix compatibility issues, and get web-ready images. Complet...",
+      "summary": "Learn how to convert TIFF to JPG online in seconds â€” reduce file size, fix compatibility issues, and get web-ready images. Complet...",
       "published": "8/jul/26",
       "nativePath": "/blog/convert-tiff-to-jpg-online"
     },
@@ -122,7 +122,7 @@
     {
       "slug": "convert-pdf-to-black-and-white-for-printing",
       "title": "Convert pdf to black and white for printing",
-      "summary": "How to convert a PDF to black and white for printing in seconds — save ink, reduce file size, and get clean, professional print-re...",
+      "summary": "How to convert a PDF to black and white for printing in seconds â€” save ink, reduce file size, and get clean, professional print-re...",
       "published": "7/jul/26",
       "nativePath": "/blog/convert-pdf-to-black-and-white-for-printing"
     },
@@ -157,7 +157,7 @@
     {
       "slug": "split-pdf-pages-online-free",
       "title": "Split pdf pages online free",
-      "summary": "Learn how to split PDF pages online free — extract specific pages, separate documents, remove unwanted sections. Step-by-step Hind...",
+      "summary": "Learn how to split PDF pages online free â€” extract specific pages, separate documents, remove unwanted sections. Step-by-step Hind...",
       "published": "5/jul/26",
       "nativePath": "/blog/split-pdf-pages-online-free"
     },
@@ -178,14 +178,14 @@
     {
       "slug": "grayscale-filter-use-in-image-editing",
       "title": "Grayscale filter use in image editing",
-      "summary": "Grayscale filter ka use image editing mein kaise hota hai — document scanning, PDF size reduction, official submissions ke liye. S...",
+      "summary": "Grayscale filter ka use image editing mein kaise hota hai â€” document scanning, PDF size reduction, official submissions ke liye. S...",
       "published": "4/jul/26",
       "nativePath": "/blog/grayscale-filter-use-in-image-editing"
     },
     {
       "slug": "qr-code-generator-tool-use",
       "title": "QR code generator tool use",
-      "summary": "QR Generator tool ka pura guide — kaise use karein, real examples, best practices. Business cards, websites, UPI payments, documen...",
+      "summary": "QR Generator tool ka pura guide â€” kaise use karein, real examples, best practices. Business cards, websites, UPI payments, documen...",
       "published": "3/jul/26",
       "nativePath": "/blog/qr-code-generator-tool-use"
     },
@@ -206,7 +206,7 @@
     {
       "slug": "how-to-blur-sensitive-information-in-images",
       "title": "How to blur sensitive information in images",
-      "summary": "Learn how to blur sensitive information in images before uploading — Aadhaar, PAN, bank details, signatures. Free online method, n...",
+      "summary": "Learn how to blur sensitive information in images before uploading â€” Aadhaar, PAN, bank details, signatures. Free online method, n...",
       "published": "2/jul/26",
       "nativePath": "/blog/how-to-blur-sensitive-information-in-images"
     },
@@ -234,7 +234,7 @@
     {
       "slug": "convert-scanned-images-to-clear-pdf",
       "title": "Convert scanned images to clear pdf",
-      "summary": "Learn how to convert scanned images to clear PDF document for official use — free online method. Step-by-step guide in Hindi+Engli...",
+      "summary": "Learn how to convert scanned images to clear PDF document for official use â€” free online method. Step-by-step guide in Hindi+Engli...",
       "published": "1/jul/26",
       "nativePath": "/blog/convert-scanned-images-to-clear-pdf"
     },
@@ -275,28 +275,28 @@
     },
     {
       "slug": "crop-image-without-losing-quality-free-online-guide",
-      "title": "Crop Image Without Losing Quality – Free Online Guide",
+      "title": "Crop Image Without Losing Quality â€“ Free Online Guide",
       "summary": "crop image without losing quality, how to crop photo without quality loss, lossless image crop online, crop image free online, cro...",
       "published": "29/jun/26",
       "nativePath": "/blog/crop-image-without-losing-quality-free-online-guide"
     },
     {
       "slug": "convert-image-to-ico-online-free-favicon-maker",
-      "title": "Convert Image to ICO Online – Free Favicon Maker",
-      "summary": "Convert any image to ICO format online for free. Create perfect favicons from PNG, JPG, or SVG — with the right sizes, transparenc...",
+      "title": "Convert Image to ICO Online â€“ Free Favicon Maker",
+      "summary": "Convert any image to ICO format online for free. Create perfect favicons from PNG, JPG, or SVG â€” with the right sizes, transparenc...",
       "published": "29/jun/26",
       "nativePath": "/blog/convert-image-to-ico-online-free-favicon-maker"
     },
     {
       "slug": "how-to-improve-image-quality-online",
       "title": "How to Improve Image Quality Online",
-      "summary": "Learn how to improve image quality online for free — enhance blurry photos, upscale resolution, fix sharpness, and restore old pic...",
+      "summary": "Learn how to improve image quality online for free â€” enhance blurry photos, upscale resolution, fix sharpness, and restore old pic...",
       "published": "28/jun/26",
       "nativePath": "/blog/how-to-improve-image-quality-online"
     },
     {
       "slug": "extract-text-from-image-ocr-online-free",
-      "title": "Extract Text from Image (OCR) Online Free – Full Guide",
+      "title": "Extract Text from Image (OCR) Online Free â€“ Full Guide",
       "summary": "Learn how to extract text from image online free using OCR. Works on Android, PC & iPhone. Step-by-step guide for JPG, PNG, PDF im...",
       "published": "28/jun/26",
       "nativePath": "/blog/extract-text-from-image-ocr-online-free"
@@ -304,7 +304,7 @@
     {
       "slug": "convert-photo-to-black-and-white-online",
       "title": "convert photo to black and white online",
-      "summary": "Convert any photo to black and white online for free — no app, no signup. Step-by-step guide, best tools, tips to avoid common mis...",
+      "summary": "Convert any photo to black and white online for free â€” no app, no signup. Step-by-step guide, best tools, tips to avoid common mis...",
       "published": "28/jun/26",
       "nativePath": "/blog/convert-photo-to-black-and-white-online"
     },
@@ -331,7 +331,7 @@
     },
     {
       "slug": "crop-image-without-losing-quality",
-      "title": "Crop Image Without Losing Quality – Free Online Method",
+      "title": "Crop Image Without Losing Quality â€“ Free Online Method",
       "summary": "Learn how to crop image without losing quality online for free. Step-by-step guide in Hindi + English for Indian users. Keep sharp...",
       "published": "",
       "nativePath": "/blog/crop-image-without-losing-quality"
@@ -401,7 +401,7 @@
     },
     {
       "slug": "jpg-to-png-kaise-convert-karein-free",
-      "title": "JPG to PNG Kaise Convert Karein? – Free Online Guide 2026",
+      "title": "JPG to PNG Kaise Convert Karein? â€“ Free Online Guide 2026",
       "summary": "JPG to PNG kaise convert karein free mein? Seekhein YashiPDF.online, online tools, Photoshop, mobile apps se JPG ko PNG mein badal...",
       "published": "",
       "nativePath": "/blog/jpg-to-png-kaise-convert-karein-free"
@@ -429,7 +429,7 @@
     },
     {
       "slug": "png-to-jpg-converter-ka-use-kaise",
-      "title": "PNG to JPG Converter Ka Use Kaise Karein? – Free Online Guide 2026",
+      "title": "PNG to JPG Converter Ka Use Kaise Karein? â€“ Free Online Guide 2026",
       "summary": "PNG to JPG converter ka use kaise karein? Step-by-step free online guide 2026. Government forms, college applications ke liye PNG ...",
       "published": "17/june/26",
       "nativePath": "/blog/png-to-jpg-converter-ka-use-kaise"
@@ -450,14 +450,14 @@
     },
     {
       "slug": "upsc-photo-signature-size-exact",
-      "title": "UPSC Photo & Signature Size — Exact Dimensions, KB Limits, Tips & Quick Resize Guide",
-      "summary": "UPSC photo & signature size — exact pixels, KB limits, background rules, step-by-step resize guide, examples, FAQs and free tools ...",
+      "title": "UPSC Photo & Signature Size â€” Exact Dimensions, KB Limits, Tips & Quick Resize Guide",
+      "summary": "UPSC photo & signature size â€” exact pixels, KB limits, background rules, step-by-step resize guide, examples, FAQs and free tools ...",
       "published": "",
       "nativePath": "/blog/upsc-photo-signature-size-exact"
     },
     {
       "slug": "webp-to-jpg-conversion-online-kaise",
-      "title": "WebP to JPG Conversion Online Kaise Karein? – Free Guide 2026",
+      "title": "WebP to JPG Conversion Online Kaise Karein? â€“ Free Guide 2026",
       "summary": "WebP to JPG conversion online kaise karein? Step-by-step free guide 2026. WhatsApp images, website photos ko JPG mein convert kare...",
       "published": "18/june/26",
       "nativePath": "/blog/webp-to-jpg-conversion-online-kaise"

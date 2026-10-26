@@ -2395,43 +2395,6 @@ seoContainer.innerHTML = `
                 };
             }
     
-                    setProgress(30, "Processing image data...");
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    canvas.width = img.naturalWidth;
-                    canvas.height = img.naturalHeight;
-
-                    if(toolId === 'grayscale') ctx.filter = 'grayscale(100%)';
-                    if(toolId === 'blur') ctx.filter = 'blur(8px)';
-                    if(toolId === 'sepia') ctx.filter = 'sepia(100%)';
-                    if(toolId === 'invert') ctx.filter = 'invert(100%)';
-
-                    let mime = 'image/jpeg', extension = 'jpg';
-                    if (toolId === 'jpg-png') { mime = 'image/png'; extension = 'png'; }
-                    else if (toolId === 'webp-jpg') { mime = 'image/jpeg'; extension = 'jpg'; }
-
-                    if (mime === 'image/jpeg') {
-                        ctx.fillStyle = '#ffffff';
-                        ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    }
-
-                    try {
-                        ctx.drawImage(img, 0, 0);
-                        setProgress(75, "Encoding image...");
-                        canvas.toBlob((blob) => {
-                            if (!blob) throw new Error("Canvas toBlob failed");
-                            setProgress(100, "Success!");
-                            outputDownloadAsset(blob, `yashipdf_${toolId}.${extension}`);
-                            clearProgress();
-                        }, mime, 0.92);
-                    } catch (e) {
-                        console.error(e);
-                        alert("Error processing image. The file might be corrupted or too large.");
-                        setProgress(0, "Error");
-                    }
-                };
-    
-            }
 
             function setupHeicConversionPipeline(file, preview, controls) {
                 preview.innerHTML = `<p class="text-sm font-semibold text-slate-700 dark:text-slate-300">Apple HEIC File Signature Detected: ${file.name}</p>`;
@@ -2537,59 +2500,6 @@ seoContainer.innerHTML = `
                 };
             }
     
-                    let targetBytes = window.targetKB * 1024;
-                    setProgress(15, "Analyzing image...");
-                    
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    
-                    let width = img.naturalWidth;
-                    let height = img.naturalHeight;
-                    
-                    // Initial scale down for very large images
-                    if (width > 3000 || height > 3000) {
-                        const scale = Math.min(3000 / width, 3000 / height);
-                        width *= scale;
-                        height *= scale;
-                    }
-
-                    canvas.width = width;
-                    canvas.height = height;
-                    
-                    let quality = 0.92;
-                    let loopsCount = 0;
-
-                    function evaluateLoopBytes() {
-                        ctx.fillStyle = '#ffffff';
-                        ctx.fillRect(0, 0, canvas.width, canvas.height);
-                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                        
-                        canvas.toBlob((blob) => {
-                            if (!blob) {
-                                alert("Compression failed.");
-                                return;
-                            }
-                            loopsCount++;
-                            setProgress(Math.min(20 + (loopsCount * 4), 95), `Size: ${(blob.size / 1024).toFixed(1)} KB`);
-                            
-                            if (blob.size > targetBytes && quality > 0.1 && loopsCount < 20) {
-                                quality -= 0.08;
-                                if(loopsCount > 5) {
-                                    canvas.width *= 0.85;
-                                    canvas.height *= 0.85;
-                                }
-                                evaluateLoopBytes();
-                            } else {
-                                setProgress(100, "Done!");
-                                outputDownloadAsset(blob, `yashipdf_compressed_${window.targetKB}kb.jpg`);
-                                clearProgress();
-                            }
-                        }, 'image/jpeg', quality);
-                    }
-                    evaluateLoopBytes();
-                };
-    
-            }
 
             function setupImageResizePipeline(file, preview, controls) {
                 const img = document.createElement('img');
@@ -2734,51 +2644,6 @@ seoContainer.innerHTML = `
                     }
                 };
             }
-     Assets Mounted inside Sequence Collection Stack</p>
-                    </div>
-                `;
-                controls.classList.remove('hidden');
-                controls.innerHTML = `
-                    <button aria-label="Action button" id="run-pdf-compile" class="bg-sky-500 hover:bg-sky-600 text-white px-8 py-2.5 rounded-lg text-sm font-bold block mx-auto shadow-md">
-                        Converted
-                    </button>
-                `;
-
-                
-                document.getElementById('run-pdf-compile').onclick = async () => {
-                    if (typeof window.jspdf === 'undefined') {
-                        alert("PDF library is still loading. Please wait.");
-                        return;
-                    }
-                    const { jsPDF } = window.jspdf;
-                    const pdf = new jsPDF();
-                    
-                    try {
-                        for(let i = 0; i < files.length; i++) {
-                            setProgress(Math.round((i / files.length) * 100), `Processing image ${i + 1}...`);
-                            const dataUrl = await convertFileToDataUrlStream(files[i]);
-                            
-                            if(i > 0) pdf.addPage();
-                            
-                            const imgProps = pdf.getImageProperties(dataUrl);
-                            const pdfW = pdf.internal.pageSize.getWidth();
-                            const pdfH = (imgProps.height * pdfW) / imgProps.width;
-                            
-                            pdf.addImage(dataUrl, 'JPEG', 0, 0, pdfW, pdfH);
-                        }
-                        
-                        setProgress(90, "Generating PDF...");
-                        pdf.save(`yashipdf_collection.pdf`);
-                        setProgress(100, "Success!");
-                        clearProgress();
-                    } catch (err) {
-                        console.error(err);
-                        alert("Failed to create PDF. Ensure images are valid.");
-                        setProgress(0, "Error");
-                    }
-                };
-    
-            }
 
             function setupPdfSplitPipeline(file, preview, controls) {
                 preview.innerHTML = `<p class="text-xs font-mono text-slate-600 dark:text-slate-400">Target PDF Structure: ${file.name} (${(file.size/1024/1024).toFixed(2)} MB)</p>`;
@@ -2826,8 +2691,6 @@ seoContainer.innerHTML = `
                         alert("Error splitting PDF.");
                         setProgress(0, "Error");
                     }
-                };
-    
                 };
             }
 
@@ -3194,11 +3057,12 @@ seoContainer.innerHTML = `
             }
 
             // Clean URL routing with legacy hash support for old indexed/shared links.
-            function executeHashBasedRoutingPipeline() {
+            function executeHashBasedRoutingPipeline(deferArticleUntilLoaded = false) {
                 const currentBrowserPathname = window.location.pathname;
                 if (currentBrowserPathname && currentBrowserPathname.endsWith('.html')) return;
                 if (legacyHashRouteToCleanUrl()) return;
                 const route = resolveRouteFromPath();
+                if (deferArticleUntilLoaded && route.view === 'article') return;
                 router(route.view, route.param, false);
             }
 
@@ -3215,6 +3079,7 @@ seoContainer.innerHTML = `
             overlay.addEventListener('click', closeMobileMenu);
 
             renderSidebar();
+            executeHashBasedRoutingPipeline(true);
             loadHeadlessArticlesPipeline();
         });
     </script>

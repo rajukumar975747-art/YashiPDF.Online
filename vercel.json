@@ -140,6 +140,10 @@
   ],
   "rewrites": [
     {
+      "source": "/blog/how-to-archive-documents-using-pdf/a",
+      "destination": "/blog/how-to-archive-documents-using-pdf/a.html"
+    },
+    {
       "source": "/blog/:slug",
       "destination": "/blog/:slug.html"
     },

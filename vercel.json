@@ -3,6 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/blog/best-file-format-for-digital-documents",
+      "destination": "/blog/best%20file%20format%20for%20digital%20documents",
+      "permanent": true
+    },
+    {
       "source": "/feeds/:path*",
       "destination": "/",
       "permanent": true
@@ -142,6 +147,10 @@
     {
       "source": "/blog/how-to-archive-documents-using-pdf/a",
       "destination": "/blog/how-to-archive-documents-using-pdf/a.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
     },
     {
       "source": "/blog/:slug",

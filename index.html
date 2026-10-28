@@ -360,7 +360,36 @@ function updateMetaDescription(text){
         <div class="px-6 mb-2">
             <h3 class="text-xs font-bold text-sky-500 uppercase tracking-widest" data-i18n="side_tools_title">Tools Dashboard</h3>
         </div>
-        <nav class="flex-1 overflow-y-auto custom-scroll px-4 pb-4 space-y-1" id="nav-links"></nav>
+        <nav class="flex-1 overflow-y-auto custom-scroll px-4 pb-4 space-y-1" id="nav-links">
+<div class="mb-4"><div class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2 px-2">CONVERSION</div>
+<a href="/jpg-png" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-image w-4 text-center text-sky-500"></i> <span>JPG to PNG</span></a>
+<a href="/png-jpg" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-file-image w-4 text-center text-sky-500"></i> <span>PNG to JPG</span></a>
+<a href="/webp-jpg" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-globe w-4 text-center text-sky-500"></i> <span>WebP to JPG</span></a>
+<a href="/heic-jpg" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-mobile-alt w-4 text-center text-sky-500"></i> <span>HEIC to JPG</span></a>
+</div>
+<div class="mb-4"><div class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2 px-2">EDITING</div>
+<a href="/compress" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-compress-arrows-alt w-4 text-center text-sky-500"></i> <span>Compress Image</span></a>
+<a href="/resize" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-expand w-4 text-center text-sky-500"></i> <span>Resize Image</span></a>
+<a href="/crop" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-crop-simple w-4 text-center text-sky-500"></i> <span>Crop Image</span></a>
+<a href="/remove-bg" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-eraser w-4 text-center text-sky-500"></i> <span>Remove White BG</span></a>
+</div>
+<div class="mb-4"><div class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2 px-2">FILTERS</div>
+<a href="/grayscale" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-filter w-4 text-center text-sky-500"></i> <span>Grayscale Filter</span></a>
+<a href="/blur" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-droplet w-4 text-center text-sky-500"></i> <span>Blur Image</span></a>
+<a href="/sepia" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-palette w-4 text-center text-sky-500"></i> <span>Sepia Filter</span></a>
+<a href="/invert" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-adjust w-4 text-center text-sky-500"></i> <span>Invert Colors</span></a>
+</div>
+<div class="mb-4"><div class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2 px-2">PDF TOOLS</div>
+<a href="/img-pdf" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-file-pdf w-4 text-center text-sky-500"></i> <span>Images to PDF</span></a>
+<a href="/pdf-split" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-scissors w-4 text-center text-sky-500"></i> <span>Split PDF</span></a>
+<a href="/pdf-lock" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-lock w-4 text-center text-sky-500"></i> <span>Lock PDF</span></a>
+</div>
+<div class="mb-4"><div class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2 px-2">UTILITIES</div>
+<a href="/qr-gen" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-qrcode w-4 text-center text-sky-500"></i> <span>QR Generator</span></a>
+<a href="/base64-img" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-code w-4 text-center text-sky-500"></i> <span>Base64 to Image</span></a>
+<a href="/img-base64" class="block px-2 py-2 text-sm text-slate-700 dark:text-slate-400 hover:bg-sky-500/10 hover:text-sky-500 dark:hover:text-sky-400 rounded-md transition-colors flex items-center gap-3 font-medium"><i class="fas fa-code w-4 text-center text-sky-500"></i> <span>Image to Base64</span></a>
+</div>
+</nav>
     </aside>
 
     <div id="overlay" class="fixed inset-0 z-30 overlay hidden"></div>
@@ -377,15 +406,93 @@ function updateMetaDescription(text){
                 </p>
             </div>
             
-            <div id="app-container" class="max-w-6xl mx-auto"></div>
+            <div id="app-container" class="max-w-6xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<a href="/jpg-png" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #10b98115; color: #10b981"><i class="fas fa-image"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">JPG to PNG</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convert JPG images to PNG format while preserving image dimensions.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #10b981">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/png-jpg" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #05966915; color: #059669"><i class="fas fa-file-image"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">PNG to JPG</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convert PNG images to JPG format for smaller, widely compatible image files.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #059669">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/webp-jpg" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #0284c715; color: #0284c7"><i class="fas fa-globe"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">WebP to JPG</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convert WebP images into standard JPG files for wider compatibility.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #0284c7">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/heic-jpg" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #0f766e15; color: #0f766e"><i class="fas fa-mobile-alt"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">HEIC to JPG</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convert HEIC photos into standard JPEG images.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #0f766e">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/compress" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #f59e0b15; color: #f59e0b"><i class="fas fa-compress-arrows-alt"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Compress Image</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Reduce image file size with a selected target size such as 20 KB or 50 KB.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #f59e0b">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/resize" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #d9770615; color: #d97706"><i class="fas fa-expand"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Resize Image</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Set output width and height in pixels.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #d97706">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/crop" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #ea580c15; color: #ea580c"><i class="fas fa-crop-simple"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Crop Image</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Crop an image to keep the area you select.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #ea580c">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/img-pdf" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #ef444415; color: #ef4444"><i class="fas fa-file-pdf"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Images to PDF</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Combine one or more images into a PDF document.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #ef4444">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/pdf-split" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #dc262615; color: #dc2626"><i class="fas fa-scissors"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Split PDF</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Extract a selected page from a PDF into a separate PDF file.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #dc2626">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/pdf-lock" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #8b5cf615; color: #8b5cf6"><i class="fas fa-lock"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Lock PDF</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Protect a PDF with a password before downloading it.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #8b5cf6">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/qr-gen" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #6366f115; color: #6366f1"><i class="fas fa-qrcode"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">QR Generator</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Create a QR code from text or a URL.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #6366f1">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/remove-bg" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #ec489915; color: #ec4899"><i class="fas fa-eraser"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Remove White BG</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Make white areas of an image background transparent.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #ec4899">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/grayscale" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #64748b15; color: #64748b"><i class="fas fa-filter"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Grayscale Filter</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convert an image to grayscale.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #64748b">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/blur" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #06b6d415; color: #06b6d4"><i class="fas fa-droplet"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Blur Image</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Apply a blur effect to an image.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #06b6d4">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/sepia" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #78350f15; color: #78350f"><i class="fas fa-palette"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Sepia Filter</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Apply a sepia tone effect to an image.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #78350f">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/invert" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #f43f5e15; color: #f43f5e"><i class="fas fa-adjust"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Invert Colors</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Invert the colors in an image.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #f43f5e">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/base64-img" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #14b8a615; color: #14b8a6"><i class="fas fa-code"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Base64 to Image</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Decode Base64 image data into a viewable image file.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #14b8a6">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+<a href="/img-base64" class="glass-card p-6 rounded-xl cursor-pointer group flex flex-col justify-between">
+<div><div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl transition-all duration-300" style="background-color: #0d948815; color: #0d9488"><i class="fas fa-code"></i></div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Image to Base64</h3><p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Convert an image file into Base64 text.</p></div>
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800/50 flex items-center text-xs font-bold uppercase tracking-wider" style="color: #0d9488">Use Tool <i class="fas fa-chevron-right ml-2 text-[10px]"></i></div></a>
+</div>
+</div>
 
             <div id="blog-posts-view-wrapper" class="max-w-6xl mx-auto mt-16 p-6 glass-card rounded-xl">
                 <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6" data-i18n="latest_articles_heading">Latest Articles</h2>
                 <div id="custom-posts-container">
-                    <div class="text-center py-8 text-slate-500 dark:text-slate-400 animate-pulse">
-                        <i class="fas fa-spinner fa-spin mr-2"></i> <span data-i18n="fetching_posts">Fetching contents pipeline...</span>
-                    </div>
-                </div>
+<div id="latest-articles-box" class="grid grid-cols-1 gap-4">
+<article class="glass-card p-5 rounded-xl border border-slate-100 dark:border-slate-800/60 transition-colors duration-200 hover:border-sky-500"><div class="flex-1 w-full"><a href="/blog/online-image-tools-for-government-forms-student-documents" class="block"><h3 class="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug hover:text-sky-500 transition-colors cursor-pointer">Online image tools for government forms student documents</h3></a><p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">Learn how to correctly resize, crop, and format photos for government forms, student documents, and social media using free online...</p><a href="/blog/online-image-tools-for-government-forms-student-documents" class="inline-flex items-center gap-2 text-sky-500 text-xs font-bold uppercase tracking-wider hover:text-sky-600 transition-colors">Read Article <i class="fas fa-arrow-right text-[10px]"></i></a></div></article>
+<article class="glass-card p-5 rounded-xl border border-slate-100 dark:border-slate-800/60 transition-colors duration-200 hover:border-sky-500"><div class="flex-1 w-full"><a href="/blog/qr-generator-business-study-social-media-kaise-use-karein" class="block"><h3 class="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug hover:text-sky-500 transition-colors cursor-pointer">QR generator business study social media kaise use karein</h3></a><p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">QR Code generator kaise use karein business documents, study materials aur social media ke liye. Complete step-by-step guide with ...</p><a href="/blog/qr-generator-business-study-social-media-kaise-use-karein" class="inline-flex items-center gap-2 text-sky-500 text-xs font-bold uppercase tracking-wider hover:text-sky-600 transition-colors">Read Article <i class="fas fa-arrow-right text-[10px]"></i></a></div></article>
+<article class="glass-card p-5 rounded-xl border border-slate-100 dark:border-slate-800/60 transition-colors duration-200 hover:border-sky-500"><div class="flex-1 w-full"><a href="/blog/crop-image-tool-se-photo-ka-unwanted-part-kaise-hataayein" class="block"><h3 class="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug hover:text-sky-500 transition-colors cursor-pointer">Crop image tool se photo ka unwanted part kaise hataayein</h3></a><p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">Crop Image Tool se photo ka unwanted part kaise hataayein? Step-by-step guide in Hindi. YashiPDF.online par free image crop tool k...</p><a href="/blog/crop-image-tool-se-photo-ka-unwanted-part-kaise-hataayein" class="inline-flex items-center gap-2 text-sky-500 text-xs font-bold uppercase tracking-wider hover:text-sky-600 transition-colors">Read Article <i class="fas fa-arrow-right text-[10px]"></i></a></div></article>
+<article class="glass-card p-5 rounded-xl border border-slate-100 dark:border-slate-800/60 transition-colors duration-200 hover:border-sky-500"><div class="flex-1 w-full"><a href="/blog/how-to-convert-pdf-to-epub-online" class="block"><h3 class="text-base md:text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug hover:text-sky-500 transition-colors cursor-pointer">How to convert PDF to EPUB online</h3></a><p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">Learn how to convert PDF to EPUB online for free. Step-by-step guide, common mistakes, real examples, and best practices from Yash...</p><a href="/blog/how-to-convert-pdf-to-epub-online" class="inline-flex items-center gap-2 text-sky-500 text-xs font-bold uppercase tracking-wider hover:text-sky-600 transition-colors">Read Article <i class="fas fa-arrow-right text-[10px]"></i></a></div></article>
+</div>
+</div>
             </div>
 
             <section id="seo-content" class="max-w-6xl mx-auto mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">

@@ -1,0 +1,4 @@
+# Local monitor database, reports, and OAuth secrets
+monitor/data/
+.env
+__pycache__/

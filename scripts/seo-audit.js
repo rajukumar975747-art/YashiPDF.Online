@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.resolve(process.argv[2] || path.join(__dirname, '..'));
-const ignoredDirectories = new Set(['.git', 'node_modules', '.vercel', 'dist', 'build', 'coverage', 'out']);
+const ignoredDirectories = new Set(['.git', 'node_modules', '.vercel', 'dist', 'build', 'coverage', 'out', 'monitor']);
 
 function decodeEntities(value) {
   const named = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', ndash: '–', mdash: '—', rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“', hellip: '…' };

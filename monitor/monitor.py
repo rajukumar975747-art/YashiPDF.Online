@@ -41,6 +41,7 @@ BING_RATE_LIMIT_SECONDS = max(0.5, float(os.environ.get("YASHIPDF_API_DELAY_SECO
 USER_AGENT = "YashiPDFLocalMonitor/1.0 (+local technical audit; respects robots.txt)"
 HOST_LOG = Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData" / "Local")) / "YashiPDFMonitor" / "logs" / "monitor-host.log"
 _HOST_LOG_LOCK = threading.Lock()
+SCHEDULER_THREAD = None
 
 
 def now():
@@ -671,6 +672,10 @@ def metric_summary(db):
 def dashboard():
     db=connect()
     run=db.execute("SELECT * FROM runs ORDER BY id DESC LIMIT 1").fetchone()
+    status_counts=db.execute("SELECT status,COUNT(*) n FROM urls WHERE run_id=? GROUP BY status ORDER BY status",(run["id"],)).fetchall() if run else []
+    redirect_chains=db.execute("SELECT redirect_chain FROM urls WHERE run_id=?",(run["id"],)).fetchall() if run else []
+    last_scheduled=db.execute("SELECT occurred FROM monitor_logs WHERE message LIKE 'Scheduled audit acquired process-safe database lease.%' ORDER BY id DESC LIMIT 1").fetchone()
+    scheduler_owner=db.execute("SELECT value FROM scheduler_state WHERE key='audit_owner_pid'").fetchone()
     issues=db.execute("SELECT severity,category,url,evidence,recommendation,status,fingerprint FROM issue_registry WHERE status IN ('open','reopened') ORDER BY CASE severity WHEN 'critical' THEN 0 WHEN 'high' THEN 1 WHEN 'medium' THEN 2 WHEN 'low' THEN 3 ELSE 4 END,last_seen DESC LIMIT 300").fetchall()
     reviews=db.execute("SELECT url,title,word_count,evidence,status FROM content_reviews WHERE run_id=? ORDER BY word_count ASC LIMIT 150",(run["id"],)).fetchall() if run else []
     counts={r["severity"]:r["n"] for r in db.execute("SELECT severity,COUNT(*) n FROM issue_registry WHERE status IN ('open','reopened') GROUP BY severity").fetchall()}
@@ -686,6 +691,22 @@ def dashboard():
     for s in snaps:
         if s["source"] not in conns: conns[s["source"]]={"status":s["status"],"captured":s["captured"],"payload":json.loads(s["payload"])}
     run_summary=json.loads(run["summary"] or "{}") if run else {}
+    scheduler_active=bool(SCHEDULER_THREAD and SCHEDULER_THREAD.is_alive())
+    scheduler_status="active" if scheduler_active else "inactive"
+    last_scheduled_text=last_scheduled["occurred"] if last_scheduled else "No scheduler-started audit recorded"
+    if run:
+        base_time=run["finished"] or run["started"]
+        retry_delay=INTERVAL if run["status"]=="complete" else RETRY_INTERVAL
+        try:
+            eligible=datetime.fromisoformat(base_time)+timedelta(seconds=retry_delay)
+            next_audit_text=("due; checked by the scheduler within 60 seconds" if eligible<=datetime.now(timezone.utc) else eligible.isoformat(timespec="seconds"))
+        except (TypeError,ValueError): next_audit_text="unavailable (invalid persisted run time)"
+    else: next_audit_text="due after startup"
+    status_text=" · ".join((f"HTTP {r['status']}: {r['n']}" if r["status"] is not None else f"No HTTP response: {r['n']}") for r in status_counts) or "No URL results stored"
+    redirect_count=0
+    for row in redirect_chains:
+        try: redirect_count+=len(json.loads(row["redirect_chain"] or "[]"))
+        except (TypeError,json.JSONDecodeError): pass
     def esc(v): return html.escape(str(v or ""),quote=True)
     issue_rows="".join(f"<tr><td><b class='{esc(i['severity'])}'>{esc(i['severity'])}</b></td><td>{esc(i['category'])}</td><td><a href='{esc(i['url'])}' target='_blank' rel='noreferrer'>{esc(i['url'])}</a></td><td>{esc(i['evidence'])}</td><td>{esc(i['recommendation'])}<form method='post' action='/verify'><input type='hidden' name='url' value='{esc(i['url'])}'><button class='secondary' type='submit'>Verify URL</button></form>{('<form method="post" action="/fix-sitemap"><input type="hidden" name="url" value="'+esc(i['url'])+'"><input type="hidden" name="run_id" value="'+str(run['id'] if run else 0)+'"><button type="submit">Apply safe sitemap fix</button></form>') if i['category']=='sitemap_coverage' and run else ''}</td></tr>" for i in issues)
     review_rows="".join(f"<tr><td><a href='{esc(r['url'])}' target='_blank' rel='noreferrer'>{esc(r['title'] or r['url'])}</a></td><td>{r['word_count']}</td><td>{esc(r['evidence'])}<br><small>Internal links and crawl findings above provide topic context. Review intent fit, examples, facts, and trust sources.</small></td><td>{esc(r['status'])}<form method='post' action='/review'><input type='hidden' name='url' value='{esc(r['url'])}'><button name='status' value='accepted'>Accept review</button><button class='secondary' name='status' value='dismissed'>Dismiss</button></form></td></tr>" for r in reviews)
@@ -702,6 +723,8 @@ def dashboard():
     :root{{color-scheme:dark;--bg:#0b1220;--card:#121d2e;--line:#26374b;--text:#e8eff7;--muted:#9aacc0;--blue:#7cc4ff}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,Segoe UI,sans-serif}}main{{max-width:1400px;margin:auto;padding:28px}}h1{{margin:0}}h2{{font-size:19px}}a{{color:var(--blue);overflow-wrap:anywhere}}small,.muted{{color:var(--muted)}}header,.grid,.buttons{{display:flex;gap:14px;align-items:center;flex-wrap:wrap}}header{{justify-content:space-between;margin-bottom:22px}}.card{{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0}}.grid>.card{{flex:1;min-width:155px;margin:0}}.n{{font-size:28px;font-weight:700}}button{{border:0;border-radius:8px;background:#1987d4;color:white;padding:11px 16px;font:inherit;cursor:pointer}}button.secondary{{background:#304459}}button:disabled{{opacity:.6}}table{{width:100%;border-collapse:collapse}}th,td{{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}}th{{position:sticky;top:0;background:var(--card)}}.tablewrap{{overflow:auto;max-height:600px}}.high{{color:#ff8d8d}}.medium{{color:#ffd46a}}.low{{color:#83c9ff}}.ok{{color:#7ce1a8}}.note{{font-size:13px;color:var(--muted)}}
     </style><main><header><div><h1>YashiPDF Site Monitor</h1><div class="muted">Local audit dashboard · {esc(SITE)} · Latest run {latest}</div></div><div class="buttons"><form method="post" action="/run"><button id="run">Run full audit now</button></form><a href="/report.json"><button class="secondary">Export JSON</button></a><a href="/report.md"><button class="secondary">Export report</button></a></div></header>
     <section class="grid"><div class="card"><small>URLs discovered</small><div class="n">{run['urls_found'] if run else 0}</div></div><div class="card"><small>URLs checked</small><div class="n">{run['urls_checked'] if run else 0}</div></div><div class="card"><small>Critical/high</small><div class="n high">{counts.get('critical',0)+counts.get('high',0)}</div></div><div class="card"><small>Medium</small><div class="n medium">{counts.get('medium',0)}</div></div><div class="card"><small>Low</small><div class="n low">{counts.get('low',0)}</div></div><div class="card"><small>Crawl health</small><div class="n {'ok' if run_summary.get('health')=='no_http_errors_found' else 'medium'}">{esc(run_summary.get('health','not run'))}</div></div></section>
+    <section class="card"><h2>Scheduler status: {esc(scheduler_status)}</h2><p>Internal scheduler thread: {esc(scheduler_status)} · last scheduler-started audit: {esc(last_scheduled_text)} · next audit eligibility: {esc(next_audit_text)}.</p><p class="note">Eligibility is calculated from the latest persisted audit; the scheduler polls at intervals of up to 60 seconds. Active audit lease: {esc(scheduler_owner['value'] if scheduler_owner else 'none')}.</p></section>
+    <section class="card"><h2>Latest HTTP and route signals</h2><p>{esc(status_text)}</p><p>Redirect responses recorded: {redirect_count} · robots.txt HTTP: {esc(run_summary.get('robots_http','unavailable'))} · sitemap URLs: {esc(run_summary.get('sitemap_urls','unavailable'))} across {esc(len(run_summary.get('sitemap_files',[])))} sitemap files.</p></section>
     <section class="card"><h2>Crawl configuration and data limits</h2><p>Run interval: {INTERVAL//3600}h · Failed-run retry: {RETRY_INTERVAL//60}m · Maximum URLs: {MAX_URLS} · Sequential requests with safe retries and rate limiting · Robots.txt exclusions respected.</p><p>Latest response-time sample: p50 {esc(run_summary.get('response_ms_p50','unavailable'))} ms; p95 {esc(run_summary.get('response_ms_p95','unavailable'))} ms across {esc(run_summary.get('response_ms_sample_count',0))} fetched URLs.</p><p class="note">Timing includes body transfer; it is not a Core Web Vital or browser runtime measurement. Search metrics are shown only when returned by connected official APIs. Average position is not an exact live ranking. Public crawling cannot reveal indexation status.</p><h2>Search connectors</h2>{conn_rows}</section>
     <section class="card"><h2>Autopilot alerts ({len(alerts)} open)</h2><p class="note">Alerts persist in SQLite. Optional local JSONL notifications use YASHIPDF_LOCAL_NOTIFY=1 and stay on this device.</p><div class="tablewrap"><table><thead><tr><th>Severity</th><th>Last seen</th><th>Occurrences</th><th>Alert</th></tr></thead><tbody>{alert_rows or '<tr><td colspan="4">No active alerts.</td></tr>'}</tbody></table></div></section>
     <section class="card"><h2>Search performance snapshots ({len(metrics)} rows)</h2><div class="tablewrap"><table><thead><tr><th>Source</th><th>Dimension</th><th>Query/page key</th><th>Period</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Average position</th></tr></thead><tbody>{metric_rows or '<tr><td colspan="8">No authenticated metrics stored.</td></tr>'}</tbody></table></div></section>
@@ -854,6 +877,7 @@ def recover_interrupted_audits():
     db.commit(); db.close(); return recovered
 
 def main():
+    global SCHEDULER_THREAD
     console_log(f"Starting YashiPDF monitor; data: {DATA}")
     connect(); recover_interrupted_audits()
     if os.environ.get("YASHIPDF_AUDIT_ONCE") == "1":
@@ -863,7 +887,8 @@ def main():
     except ValueError: is_loopback=host.lower()=="localhost"
     if not is_loopback: raise SystemExit("YASHIPDF_HOST must be localhost or a loopback IP; remote dashboard binding is disabled.")
     server=ThreadingHTTPServer((host,port),Handler)
-    threading.Thread(target=scheduler,daemon=True).start()
+    SCHEDULER_THREAD=threading.Thread(target=scheduler,daemon=True,name="YashiPDFAuditScheduler")
+    SCHEDULER_THREAD.start()
     console_log(f"YashiPDF monitor on http://{host}:{port} (data: {DATA})")
     try: server.serve_forever()
     except KeyboardInterrupt: console_log("Stopping monitor...")

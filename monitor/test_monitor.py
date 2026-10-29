@@ -85,12 +85,23 @@ class MonitorTests(unittest.TestCase):
 
     def test_dashboard_and_blog_sitemap_route(self):
         db=m.connect()
-        cur=db.execute("INSERT INTO runs(started,status) VALUES(?,?)",(m.now(),"complete"))
+        stamp=m.now()
+        cur=db.execute("INSERT INTO runs(started,finished,status,urls_found,urls_checked,summary) VALUES(?,?,?,?,?,?)",(stamp,stamp,"complete",2,2,json.dumps({"robots_http":200,"sitemap_urls":2,"sitemap_files":["https://www.yashipdf.online/sitemap.xml"]})))
         m.issue(db,cur.lastrowid,"medium","sitemap_coverage","https://www.yashipdf.online/example","Not listed in sitemap","Add after verification")
+        db.execute("INSERT INTO urls(run_id,url,status,final_url,checked,redirect_chain) VALUES(?,?,?,?,?,?)",(cur.lastrowid,"https://www.yashipdf.online/",200,"https://www.yashipdf.online/",stamp,"[]"))
+        db.execute("INSERT INTO urls(run_id,url,status,final_url,checked,redirect_chain) VALUES(?,?,?,?,?,?)",(cur.lastrowid,"https://www.yashipdf.online/missing",404,"https://www.yashipdf.online/missing",stamp,"[]"))
+        db.execute("INSERT INTO monitor_logs(occurred,level,message) VALUES(?,?,?)",(stamp,"INFO","Scheduled audit acquired process-safe database lease."))
         db.commit(); db.close()
-        page=m.dashboard()
+        class ActiveScheduler:
+            @staticmethod
+            def is_alive(): return True
+        with patch.object(m,"SCHEDULER_THREAD",ActiveScheduler()): page=m.dashboard()
         self.assertIn("Run full audit now",page)
         self.assertIn("Content improvement queue",page)
+        self.assertIn("Scheduler status: active",page)
+        self.assertIn("HTTP 200: 1",page)
+        self.assertIn("HTTP 404: 1",page)
+        self.assertIn("Redirect responses recorded: 0",page)
         self.assertIn("/report.json",page)
         self.assertIn("Apply safe sitemap fix",page)
         self.assertIn("Google URL Inspection",page)

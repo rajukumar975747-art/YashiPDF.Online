@@ -56,3 +56,12 @@ Autopilot validation production crawl (run 9, 2026-10-29) completed sequentially
 - Task configuration was verified: current-user logon trigger, `IgnoreNew`, `StartWhenAvailable`, five restart attempts at five-minute intervals, and no execution time limit. Last Task Scheduler result `267009` means the task is running.
 - The Windows UI browser automation stopped because it could not confidently establish the active browser URL. API/HTTP checks verified the dashboard and exports; a visual browser interaction was not completed.
 - Full monitor tests after the task lifecycle correction: 18/18 passed. SEO source audit: 94 HTML files, 0 errors, 1 duplicate-ID warning. Python compilation, JavaScript syntax, Vercel JSON and sitemap XML parsing, and `git diff --check` passed.
+
+
+## Follow-up production deployment and source audit, 2026-10-29 09:47 UTC
+
+- Git branch was clean at `f345f781f4d176738feb99619b99eb68650d3003` before this follow-up. GitHub/Vercel deployment metadata identifies Production deployment `7408709967` on that exact commit as successful. Preview deployment `7408280091` uses the same SHA, but its target is access-protected and returned Vercel Login; page-level preview validation remains blocked.
+- Production audit run 11: 111 URLs found and checked, 99 HTTP 200, 12 HTTP 404, zero connection failures; robots HTTP 200; live/local sitemap exact set match (94 URLs each); fetch p50/p95 1000/3063 ms including body transfer, not Core Web Vitals. Details and full 404 list are in ignored `monitor/data/reports/production-baseline-2026-10-29T094736Z.json`.
+- Direct rechecks confirm prior run 10's 21 old URL paths still return 404. The corrected replacements were checked and return 200. Remaining paths are classified in `monitor/404-review.md`; no inferred redirects were created.
+- Source audit warning fixed locally: removed the redundant duplicate `id` from the second Related Articles heading in `blog/jpg-vs-png-which-format-should-you-use.html`. No fragment references to that ID existed in the file. A pre-edit copy and diff are under ignored `monitor/data/fix-backups/20261029T0947Z-jpg-vs-png.*`; the SEO audit now reports 94 HTML files, zero errors, zero warnings. The change is local and not production-verified.
+- Protected preview blocked rendered-route verification; no deploy or push was performed.

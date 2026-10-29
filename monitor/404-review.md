@@ -41,3 +41,12 @@ The following route corrections are in the autopilot allowlist. Run 8 confirmed 
 | `/video-resizer` | No video-resizing page or asset exists locally. No page generated. |
 
 No evidence established an intentional removal for any route. The unimplemented routes need a product/editor decision before restoration, removal confirmation, or redirection. Placeholder assets and author imagery need their original sources before restoration. The local audit must verify each allowlisted destination as 2xx before changing source links.
+
+
+## Fresh production recheck, 2026-10-29 09:39–09:43 UTC (run 11)
+
+- Verified the Vercel production deployment record: deployment `7408709967`, commit `f345f781f4d176738feb99619b99eb68650d3003`, status success. The public custom domain responded during a real 111-URL crawl.
+- Run 11 checked 111/111 URLs: 99 HTTP 200, 12 HTTP 404, zero connection failures. `robots.txt` returned 200; live sitemap has 94 URLs and exactly matches the 94 unique local sitemap URLs. Fetch-time p50/p95 was 1000/3063 ms including body transfer; these are not Core Web Vitals.
+- The remaining 12 404s are `/assets/author-raju.jpg`, five `/blog/PLACEHOLDER_*.jpg` illustrations, `/favicon.ico`, and `/pdf-merger`, `/pdf-to-jpg`, `/pdf-to-jpg-converter`, `/tools/`, `/video-resizer`. The first seven need original assets; the last five have no equivalent page confirmed. No speculative redirects or generated assets were added.
+- All 21 URLs from run 10 were directly rechecked in the prior sequential verification: the paths still return 404 (with `/tools/` redirecting to another missing route). The source corrections repaired current links, not the old URL paths. The seven verified corrected destinations each returned HTTP 200.
+- Current crawl internal broken-link targets are limited to the listed missing assets and obsolete routes. Direct Vercel preview and deployment URLs return a Vercel Login page (HTTP 200); preview content verification is blocked by access protection. No access control was bypassed. Full timestamped evidence is in ignored `monitor/data/reports/production-baseline-2026-10-29T094736Z.json`.

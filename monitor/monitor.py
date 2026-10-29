@@ -26,6 +26,7 @@ from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+import backlinks
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = Path(os.environ.get("YASHIPDF_DATA_DIR", Path(__file__).parent / "data"))
@@ -86,6 +87,7 @@ def connect():
     CREATE TABLE IF NOT EXISTS file_fixes(id INTEGER PRIMARY KEY, run_id INTEGER NOT NULL, path TEXT NOT NULL, category TEXT NOT NULL, created TEXT NOT NULL, status TEXT NOT NULL, backup_path TEXT NOT NULL, diff TEXT NOT NULL, verification TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS alerts(id INTEGER PRIMARY KEY, fingerprint TEXT UNIQUE NOT NULL, severity TEXT NOT NULL, message TEXT NOT NULL, first_seen TEXT NOT NULL, last_seen TEXT NOT NULL, occurrences INTEGER NOT NULL DEFAULT 1, last_run INTEGER, status TEXT NOT NULL DEFAULT 'open');
     """)
+    backlinks.initialize(db)
     for col, spec in (("redirect_chain","TEXT NOT NULL DEFAULT '[]'"),("x_robots_tag","TEXT"),("content_hash","TEXT"),("response_ms","REAL")):
         existing={r[1] for r in db.execute("PRAGMA table_info(urls)")}
         if col not in existing: db.execute(f"ALTER TABLE urls ADD COLUMN {col} {spec}")
@@ -719,6 +721,7 @@ def dashboard():
     conn_rows="".join(f"<p><b>{esc(k)}</b>: {esc(v['status'])} <small>{esc(v['captured'])} — {esc(v['payload'].get('detail',''))}</small></p>" for k,v in conns.items()) or "<p>Connector status is unavailable until the first audit.</p>"
     metric_rows="".join(f"<tr><td>{esc(m['source'])}</td><td>{esc(m['dimension'])}</td><td>{esc(m['key'])}</td><td>{esc(m['period_start'])} – {esc(m['period_end'])}</td><td>{esc(m['clicks'])}</td><td>{esc(m['impressions'])}</td><td>{esc(m['ctr'])}</td><td>{esc(m['position'])}</td></tr>" for m in metrics)
     latest=esc(run["started"] if run else "Never")
+    backlink_db=connect(); backlink_stats=backlinks.stats(backlink_db); backlink_db.close()
     return f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>YashiPDF Site Monitor</title><style>
     :root{{color-scheme:dark;--bg:#0b1220;--card:#121d2e;--line:#26374b;--text:#e8eff7;--muted:#9aacc0;--blue:#7cc4ff}}*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,Segoe UI,sans-serif}}main{{max-width:1400px;margin:auto;padding:28px}}h1{{margin:0}}h2{{font-size:19px}}a{{color:var(--blue);overflow-wrap:anywhere}}small,.muted{{color:var(--muted)}}header,.grid,.buttons{{display:flex;gap:14px;align-items:center;flex-wrap:wrap}}header{{justify-content:space-between;margin-bottom:22px}}.card{{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0}}.grid>.card{{flex:1;min-width:155px;margin:0}}.n{{font-size:28px;font-weight:700}}button{{border:0;border-radius:8px;background:#1987d4;color:white;padding:11px 16px;font:inherit;cursor:pointer}}button.secondary{{background:#304459}}button:disabled{{opacity:.6}}table{{width:100%;border-collapse:collapse}}th,td{{padding:9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}}th{{position:sticky;top:0;background:var(--card)}}.tablewrap{{overflow:auto;max-height:600px}}.high{{color:#ff8d8d}}.medium{{color:#ffd46a}}.low{{color:#83c9ff}}.ok{{color:#7ce1a8}}.note{{font-size:13px;color:var(--muted)}}
     </style><main><header><div><h1>YashiPDF Site Monitor</h1><div class="muted">Local audit dashboard · {esc(SITE)} · Latest run {latest}</div></div><div class="buttons"><form method="post" action="/run"><button id="run">Run full audit now</button></form><a href="/report.json"><button class="secondary">Export JSON</button></a><a href="/report.md"><button class="secondary">Export report</button></a></div></header>
@@ -728,6 +731,7 @@ def dashboard():
     <section class="card"><h2>Crawl configuration and data limits</h2><p>Run interval: {INTERVAL//3600}h · Failed-run retry: {RETRY_INTERVAL//60}m · Maximum URLs: {MAX_URLS} · Sequential requests with safe retries and rate limiting · Robots.txt exclusions respected.</p><p>Latest response-time sample: p50 {esc(run_summary.get('response_ms_p50','unavailable'))} ms; p95 {esc(run_summary.get('response_ms_p95','unavailable'))} ms across {esc(run_summary.get('response_ms_sample_count',0))} fetched URLs.</p><p class="note">Timing includes body transfer; it is not a Core Web Vital or browser runtime measurement. Search metrics are shown only when returned by connected official APIs. Average position is not an exact live ranking. Public crawling cannot reveal indexation status.</p><h2>Search connectors</h2>{conn_rows}</section>
     <section class="card"><h2>Autopilot alerts ({len(alerts)} open)</h2><p class="note">Alerts persist in SQLite. Optional local JSONL notifications use YASHIPDF_LOCAL_NOTIFY=1 and stay on this device.</p><div class="tablewrap"><table><thead><tr><th>Severity</th><th>Last seen</th><th>Occurrences</th><th>Alert</th></tr></thead><tbody>{alert_rows or '<tr><td colspan="4">No active alerts.</td></tr>'}</tbody></table></div></section>
     <section class="card"><h2>Search performance snapshots ({len(metrics)} rows)</h2><div class="tablewrap"><table><thead><tr><th>Source</th><th>Dimension</th><th>Query/page key</th><th>Period</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Average position</th></tr></thead><tbody>{metric_rows or '<tr><td colspan="8">No authenticated metrics stored.</td></tr>'}</tbody></table></div></section>
+    <section class="card"><h2>Backlink prospect tracker</h2><p>Researched {backlink_stats['researched']} · free {backlink_stats['free']} · ready {backlink_stats['ready']} · submitted {backlink_stats['submitted']} · verified {backlink_stats['verified']} · removed/broken {backlink_stats['removed_or_broken']} · manual tasks {backlink_stats['pending_manual']}</p><p><a href="/backlinks">Open reviewable prospect tracker</a> · <a href="/backlinks.csv">CSV</a> · <a href="/backlinks.json">JSON</a> · <a href="/backlinks.md">Markdown report</a></p><p class="note">Prospects are not counted as acquired links. Submissions and outreach remain manual.</p></section>
     <section class="card"><h2>Verify and inspect a URL</h2><form method="post" action="/verify"><label>Site URL <input name="url" value="{esc(SITE)}/" required></label><button>Verify live HTTP/metadata</button></form><form method="post" action="/inspect-gsc"><label>Google URL Inspection <input name="url" value="{esc(SITE)}/" required></label><button class="secondary">Inspect Google index state</button></form><p class="note">Google inspection requires credentials and reports the API snapshot; it does not guarantee indexing.</p></section>
     <section class="card"><h2>Issue queue ({len(issues)} active deduplicated findings)</h2><div class="tablewrap"><table><thead><tr><th>Severity</th><th>Type</th><th>URL</th><th>Evidence</th><th>Suggested action</th></tr></thead><tbody>{issue_rows or '<tr><td colspan="5">No active findings.</td></tr>'}</tbody></table></div></section>
     <section class="card"><h2>Content improvement queue ({len(reviews)} pages awaiting review)</h2><p class="note">These are screening signals for an editor, not a quality score. No article text is rewritten automatically.</p><div class="tablewrap"><table><thead><tr><th>Article</th><th>Source words</th><th>Review notes</th><th>Status</th></tr></thead><tbody>{review_rows or '<tr><td colspan="4">No blog pages checked yet.</td></tr>'}</tbody></table></div></section>
@@ -784,6 +788,11 @@ def autopilot_cycle():
         from autopilot import persist_alerts
         result["alerts_created"]=persist_alerts(sys.modules[__name__],run_id,result)
     except Exception as e: log_event(f"Alert persistence failed: {type(e).__name__}: {e}","ERROR",run_id)
+    try:
+        db=connect()
+        try: result["backlink_daily_report"]=str(backlinks.write_daily_summary(db,DATA,run_id,result))
+        finally: db.close()
+    except Exception as e: log_event(f"Backlink daily summary failed: {type(e).__name__}: {e}","ERROR",run_id)
     return result
 
 class Handler(BaseHTTPRequestHandler):
@@ -792,7 +801,16 @@ class Handler(BaseHTTPRequestHandler):
         data=body.encode() if isinstance(body,str) else body
         self.send_response(code); self.send_header("Content-Type",ctype); self.send_header("Content-Length",str(len(data))); self.send_header("X-Content-Type-Options","nosniff"); self.send_header("Cache-Control","no-store"); self.end_headers(); self.wfile.write(data)
     def do_GET(self):
-        if self.path=="/": return self.send(200,dashboard())
+        parsed_path=urllib.parse.urlsplit(self.path)
+        if parsed_path.path=="/": return self.send(200,dashboard())
+        if parsed_path.path=="/backlinks":
+            db=connect(); notice=urllib.parse.parse_qs(parsed_path.query).get("message",[""])[0]; page=backlinks.dashboard_page(db,notice); db.close(); return self.send(200,page)
+        if parsed_path.path=="/backlinks.json":
+            db=connect(); body=backlinks.export_json(db); db.close(); return self.send(200,body,"application/json; charset=utf-8")
+        if parsed_path.path=="/backlinks.csv":
+            db=connect(); body=backlinks.export_csv(db); db.close(); return self.send(200,body,"text/csv; charset=utf-8")
+        if parsed_path.path=="/backlinks.md":
+            db=connect(); body=backlinks.report_markdown(db); db.close(); return self.send(200,body,"text/markdown; charset=utf-8")
         if self.path=="/health": return self.send(200,json.dumps({"status":"ok","time":now()}),"application/json")
         if self.path=="/report.json":
             db=connect(); run=db.execute("SELECT * FROM runs ORDER BY id DESC LIMIT 1").fetchone(); issues=[dict(r) for r in db.execute("SELECT * FROM issues WHERE run_id=?",(run["id"],))] if run else []; urls=[dict(r) for r in db.execute("SELECT * FROM urls WHERE run_id=?",(run["id"],))] if run else []; db.close()
@@ -816,10 +834,32 @@ class Handler(BaseHTTPRequestHandler):
                 finally: _lock.release()
             threading.Thread(target=task,daemon=True).start()
             self.send_response(303); self.send_header("Location","/"); self.end_headers(); return
-        if self.path in ("/verify","/inspect-gsc","/fix-sitemap","/review","/alert-ack"):
+        if self.path in ("/verify","/inspect-gsc","/fix-sitemap","/review","/alert-ack","/backlinks/add","/backlinks/status","/backlinks/verify"):
             length=min(int(self.headers.get("Content-Length","0")),8192)
             form=urllib.parse.parse_qs(self.rfile.read(length).decode("utf-8","replace"))
             url=form.get("url",[""])[0]
+            if self.path=="/backlinks/add":
+                db=connect()
+                try:
+                    _,inserted=backlinks.add_prospect(db,{k:v[0] for k,v in form.items()})
+                    message="Prospect added." if inserted else "A prospect with that submission URL already exists."
+                except ValueError as e: message=str(e)
+                finally: db.close()
+                self.send_response(303); self.send_header("Location","/backlinks?message="+urllib.parse.quote(message)); self.end_headers(); return
+            if self.path=="/backlinks/status":
+                db=connect()
+                try:
+                    backlinks.transition_status(db,int(form.get("id",["0"])[0]),form.get("status",[""])[0],referring_page=form.get("referring_page",[""])[0],removal_reason=form.get("removal_reason",[""])[0]); message="Status saved."
+                except (ValueError,TypeError) as e: message=str(e)
+                finally: db.close()
+                self.send_response(303); self.send_header("Location","/backlinks?message="+urllib.parse.quote(message)); self.end_headers(); return
+            if self.path=="/backlinks/verify":
+                db=connect()
+                try:
+                    outcome=backlinks.verify_backlink(db,int(form.get("id",["0"])[0]),fetch_detailed); message="Verification: "+outcome["result"]+" — "+outcome["reason"]
+                except (ValueError,TypeError) as e: message=str(e)
+                finally: db.close()
+                self.send_response(303); self.send_header("Location","/backlinks?message="+urllib.parse.quote(message)); self.end_headers(); return
             if self.path=="/verify": verify_url(url)
             elif self.path=="/inspect-gsc": inspect_gsc_url(url)
             elif self.path=="/alert-ack":

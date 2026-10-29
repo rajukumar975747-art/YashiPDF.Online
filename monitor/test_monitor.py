@@ -7,6 +7,7 @@ from unittest.mock import patch
 import xml.etree.ElementTree as ET
 
 import monitor as m
+import backlinks as b
 
 
 class MonitorTests(unittest.TestCase):
@@ -105,6 +106,8 @@ class MonitorTests(unittest.TestCase):
         self.assertIn("/report.json",page)
         self.assertIn("Apply safe sitemap fix",page)
         self.assertIn("Google URL Inspection",page)
+        self.assertIn("Backlink prospect tracker",page)
+        self.assertIn("/backlinks.csv",page)
         root=Path(__file__).resolve().parent.parent
         urls={e.text.strip() for e in ET.parse(root/"sitemap.xml").getroot().iter() if e.tag.endswith("loc") and e.text}
         self.assertIn("https://www.yashipdf.online/blog",urls)
@@ -224,6 +227,121 @@ class MonitorTests(unittest.TestCase):
         import socket, urllib.error
         self.assertIn("DNS resolution failed",m.classify_connection_error(urllib.error.URLError(socket.gaierror("no resolver"))))
         self.assertIn("timed out",m.classify_connection_error(TimeoutError("timed out")))
+
+    def test_backlink_url_validation_blocks_unsafe_urls_and_limits_destinations(self):
+        self.assertEqual(b.normalize_url("https://EXAMPLE.com/submit/")[1],"https://example.com/submit")
+        self.assertEqual(b.normalize_url("https://www.yashipdf.online/crop",target=True)[0],"https://www.yashipdf.online/crop")
+        for value in ("http://example.com", "https://user:pass@example.com/", "https://localhost/", "https://127.0.0.1/", "javascript:alert(1)"):
+            with self.subTest(value=value), self.assertRaises(ValueError): b.normalize_url(value)
+        with self.assertRaises(ValueError): b.normalize_url("https://example.com/",target=True)
+
+    def test_backlink_prospects_seed_deduplicate_and_export(self):
+        db=m.connect()
+        try:
+            seeded=b.list_prospects(db)
+            self.assertEqual(len(seeded),3)
+            self.assertEqual(sum(x["free_submission"] for x in seeded),2)
+            product_hunt=next(x for x in seeded if x["name"]=="Product Hunt")
+            self.assertEqual(product_hunt["free_submission"],0)
+            data={"name":"Example directory","website":"https://directory.example/","submission_url":"https://directory.example/submit/","source_url":"https://directory.example/about","target_url":"https://www.yashipdf.online/","free_submission":True,"description":"A tailored accurate summary."}
+            ident,inserted=b.add_prospect(db,data); self.assertTrue(inserted)
+            again,inserted_again=b.add_prospect(db,{**data,"submission_url":"https://directory.example/submit"})
+            self.assertEqual(ident,again); self.assertFalse(inserted_again)
+            self.assertEqual(b.stats(db)["researched"],4)
+            self.assertEqual(len(json.loads(b.export_json(db))["prospects"]),4)
+            self.assertIn("Example directory",b.export_csv(db))
+            self.assertIn("Example directory",b.report_markdown(db))
+        finally: db.close()
+
+    def test_backlink_status_transitions_require_manual_review_sequence(self):
+        db=m.connect()
+        try:
+            ident=db.execute("SELECT id FROM backlink_prospects ORDER BY id LIMIT 1").fetchone()[0]
+            with self.assertRaises(ValueError): b.transition_status(db,ident,"verified")
+            b.transition_status(db,ident,"draft_prepared")
+            b.transition_status(db,ident,"submitted")
+            b.transition_status(db,ident,"published_unverified",referring_page="https://directory.example/yashipdf")
+            row=b.get_prospect(db,ident)
+            self.assertEqual(row["status"],"published_unverified")
+            self.assertEqual(row["referring_page"],"https://directory.example/yashipdf")
+        finally: db.close()
+
+    def test_backlink_verification_follows_same_host_redirect_and_classifies_rel(self):
+        import socket
+        db=m.connect()
+        try:
+            ident=db.execute("SELECT id FROM backlink_prospects ORDER BY id LIMIT 1").fetchone()[0]
+            db.execute("UPDATE backlink_prospects SET target_url='https://www.yashipdf.online/crop' WHERE id=?",(ident,)); db.commit()
+            b.transition_status(db,ident,"draft_prepared"); b.transition_status(db,ident,"submitted")
+            b.transition_status(db,ident,"published_unverified",referring_page="https://directory.example/old")
+            body=b'<html><a href="https://www.yashipdf.online/crop" rel="ugc nofollow">Useful crop tool</a></html>'
+            def fake_fetch(url):
+                return (200,"https://directory.example/listing",body,"text/html","",[{"status":301,"from":url,"to":"https://directory.example/listing"}],{})
+            def public_dns(host,*args,**kwargs):
+                return [(socket.AF_INET,socket.SOCK_STREAM,socket.IPPROTO_TCP,"",("93.184.216.34",443))]
+            result=b.verify_backlink(db,ident,fake_fetch,resolver=public_dns)
+            self.assertEqual(result["status"],"verified")
+            self.assertEqual(result["link_rel"],"ugc nofollow")
+            self.assertEqual(result["anchor_text"],"Useful crop tool")
+            self.assertEqual(result["redirects"][0]["status"],301)
+            self.assertEqual(db.execute("SELECT COUNT(*) FROM backlink_verifications WHERE prospect_id=?",(ident,)).fetchone()[0],1)
+            self.assertEqual(b.classify_rel("sponsored nofollow"),"sponsored nofollow")
+            self.assertEqual(b.classify_rel(""),"follow")
+            with self.assertRaisesRegex(ValueError,"rate-limited"):
+                b.verify_backlink(db,ident,fake_fetch,resolver=public_dns)
+        finally: db.close()
+
+    def test_backlink_missing_link_never_counts_and_previous_link_becomes_removed(self):
+        import socket
+        db=m.connect()
+        try:
+            ident=db.execute("SELECT id FROM backlink_prospects ORDER BY id LIMIT 1").fetchone()[0]
+            db.execute("UPDATE backlink_prospects SET target_url='https://www.yashipdf.online/crop' WHERE id=?",(ident,)); db.commit()
+            b.transition_status(db,ident,"draft_prepared"); b.transition_status(db,ident,"submitted")
+            b.transition_status(db,ident,"published_unverified",referring_page="https://directory.example/listing")
+            resolver=lambda *a,**k:[(socket.AF_INET,socket.SOCK_STREAM,6,"",("93.184.216.34",443))]
+            absent=lambda url:(200,url,b'<html><p>No outbound link</p></html>',"text/html","",[],{})
+            first=b.verify_backlink(db,ident,absent,resolver=resolver)
+            self.assertEqual(first["status"],"published_unverified")
+            self.assertEqual(first["result"],"not_verified")
+            db.execute("UPDATE backlink_prospects SET status='verified' WHERE id=?",(ident,)); db.commit()
+            from datetime import datetime,timedelta,timezone
+            old_check=(datetime.now(timezone.utc)-timedelta(minutes=2)).isoformat(timespec="seconds")
+            db.execute("UPDATE backlink_verifications SET checked_at=? WHERE prospect_id=?",(old_check,ident)); db.commit()
+            second=b.verify_backlink(db,ident,absent,resolver=resolver)
+            self.assertEqual(second["status"],"removed")
+            self.assertEqual(b.stats(db)["removed_or_broken"],1)
+        finally: db.close()
+
+    def test_backlink_verification_rejects_private_dns_and_daily_report_is_idempotent(self):
+        import socket
+        db=m.connect()
+        try:
+            ident=db.execute("SELECT id FROM backlink_prospects ORDER BY id LIMIT 1").fetchone()[0]
+            b.transition_status(db,ident,"draft_prepared"); b.transition_status(db,ident,"submitted")
+            b.transition_status(db,ident,"published_unverified",referring_page="https://directory.example/listing")
+            called=[]
+            def private_dns(*args,**kwargs): return [(socket.AF_INET,socket.SOCK_STREAM,6,"",("127.0.0.1",443))]
+            result=b.verify_backlink(db,ident,lambda url:called.append(url),resolver=private_dns)
+            self.assertEqual(result["result"],"not_verified")
+            self.assertIn("non-public",result["reason"])
+            self.assertEqual(called,[])
+            one=b.write_daily_summary(db,Path(self.tmp.name),12,{"execution":"completed"})
+            first=one.read_text(encoding="utf-8")
+            two=b.write_daily_summary(db,Path(self.tmp.name),12,{"execution":"completed"})
+            self.assertEqual(one,two)
+            self.assertEqual(first,two.read_text(encoding="utf-8"))
+            self.assertIn("human actions pending",first)
+        finally: db.close()
+
+    def test_backlink_dashboard_and_exports_are_functional_http_routes(self):
+        db=m.connect(); db.close()
+        for path,expected in (("/backlinks","Free backlink prospect tracker"),("/backlinks.json",'"prospects"'),("/backlinks.csv","submission_url"),("/backlinks.md","backlink prospect report")):
+            handler=object.__new__(m.Handler); handler.path=path; captured=[]
+            handler.send=lambda *args:captured.extend(args)
+            m.Handler.do_GET(handler)
+            self.assertEqual(captured[0],200,path)
+            self.assertIn(expected,captured[1],path)
 
 
 if __name__ == "__main__":

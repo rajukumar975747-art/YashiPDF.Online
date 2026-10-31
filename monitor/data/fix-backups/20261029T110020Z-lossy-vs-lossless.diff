@@ -1,0 +1,11 @@
+--- a/blog/lossy-vs-lossless-compression-explained.html
++++ b/blog/lossy-vs-lossless-compression-explained.html
+@@ -705,7 +705,7 @@
+                         <strong>YashiPDF.online</strong> — Free PDF & Image Tools for Everyone
+                     </p>
+                     <p style="font-size: 14px; color: #adb5bd;">
+-                        © 2026 YashiPDF.online. All rights reserved. | <a href="https://www.yashipdf.online/" style="color: #007bff;">Home</a> | <a href="https://www.yashipdf.online/#tools/" style="color: #007bff;">Tools</a> | <a href="https
++                        © 2026 YashiPDF.online. All rights reserved. | <a href="https://www.yashipdf.online/" style="color: #007bff;">Home</a> | <a href="https://www.yashipdf.online/#tools/" style="color: #007bff;">Tools</a> | <a href="https://www.yashipdf.online/contact">Contact</a>
+ </p>
+                     <p style="font-size: 12px; color: #6c757d; margin-top: 15px;">
+                         Disclaimer: This content is for informational purposes only. Compression results depend on original image. Verify official requirements before submitting applications.

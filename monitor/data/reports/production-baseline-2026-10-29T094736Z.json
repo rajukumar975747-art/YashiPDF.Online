@@ -1,0 +1,176 @@
+{
+  "captured_utc": "2026-10-29T09:47:36Z",
+  "production": "https://www.yashipdf.online/",
+  "deployment": {
+    "provider": "Vercel",
+    "environment": "Production",
+    "deployment_id": "7408709967",
+    "commit": "f345f781f4d176738feb99619b99eb68650d3003",
+    "status": "success",
+    "target": "https://yashi-pdf-online-hleh-p7as109bw-yashi-pdf-founder-s-projects.vercel.app"
+  },
+  "preview": {
+    "deployment_id": "7408280091",
+    "commit": "f345f781f4d176738feb99619b99eb68650d3003",
+    "status": "success",
+    "target": "https://yashi-pdf-online-hleh-3hpxmrygs-yashi-pdf-founder-s-projects.vercel.app",
+    "verification": "blocked by Vercel Login access protection"
+  },
+  "run": {
+    "id": 11,
+    "started": "2026-10-29T09:39:40+00:00",
+    "finished": "2026-10-29T09:42:54+00:00",
+    "status": "complete",
+    "urls_found": 111,
+    "urls_checked": 111,
+    "summary": "{\"execution\": \"completed\", \"health\": \"degraded\", \"urls_found\": 111, \"urls_checked\": 111, \"successful_http_urls\": 99, \"http_errors\": 12, \"connection_failures\": 0, \"response_ms_p50\": 1000.0, \"response_ms_p95\": 3063.0, \"response_ms_sample_count\": 111, \"sitemap_urls\": 94, \"sitemap_files\": [\"https://www.yashipdf.online/sitemap.xml\"], \"robots_http\": 200, \"sitemap_failures\": [], \"network\": {\"host\": \"www.yashipdf.online\", \"system_dns\": \"resolved\", \"addresses\": [\"216.198.79.65\", \"64.29.17.65\", \"64:ff9b::401d:1141\", \"64:ff9b::d8c6:4f41\"], \"proxy_configured\": false, \"proxy_hosts\": []}, \"proxy_in_use\": false, \"message\": \"Connection failures describe this monitor's network path; only an HTTP response establishes an origin server response. Response timing includes body transfer and is not a Core Web Vital.\"}"
+  },
+  "summary": {
+    "execution": "completed",
+    "health": "degraded",
+    "urls_found": 111,
+    "urls_checked": 111,
+    "successful_http_urls": 99,
+    "http_errors": 12,
+    "connection_failures": 0,
+    "response_ms_p50": 1000.0,
+    "response_ms_p95": 3063.0,
+    "response_ms_sample_count": 111,
+    "sitemap_urls": 94,
+    "sitemap_files": [
+      "https://www.yashipdf.online/sitemap.xml"
+    ],
+    "robots_http": 200,
+    "sitemap_failures": [],
+    "network": {
+      "host": "www.yashipdf.online",
+      "system_dns": "resolved",
+      "addresses": [
+        "216.198.79.65",
+        "64.29.17.65",
+        "64:ff9b::401d:1141",
+        "64:ff9b::d8c6:4f41"
+      ],
+      "proxy_configured": false,
+      "proxy_hosts": []
+    },
+    "proxy_in_use": false,
+    "message": "Connection failures describe this monitor's network path; only an HTTP response establishes an origin server response. Response timing includes body transfer and is not a Core Web Vital."
+  },
+  "production_sitemap_urls": 94,
+  "local_sitemap_urls": 94,
+  "sitemap_exact_set_match": true,
+  "http_404_urls": [
+    "https://www.yashipdf.online/assets/author-raju.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_after-single-pdf-file.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_before-multiple-jpg-images.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_step1-yashipdf-homepage.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_step2-upload-jpg-images.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_step3-convert-download-pdf.jpg",
+    "https://www.yashipdf.online/favicon.ico",
+    "https://www.yashipdf.online/pdf-merger",
+    "https://www.yashipdf.online/pdf-to-jpg",
+    "https://www.yashipdf.online/pdf-to-jpg-converter",
+    "https://www.yashipdf.online/tools/",
+    "https://www.yashipdf.online/video-resizer"
+  ],
+  "broken_internal_targets": [
+    {
+      "target": "https://www.yashipdf.online/assets/author-raju.jpg",
+      "n": 2,
+      "sources": "https://www.yashipdf.online/blog/best%20file%20format%20for%20digital%20documents,https://www.yashipdf.online/blog/best-file-format-for-digital-documents"
+    },
+    {
+      "target": "https://www.yashipdf.online/blog/PLACEHOLDER_after-single-pdf-file.jpg",
+      "n": 1,
+      "sources": "https://www.yashipdf.online/blog/jpg-to-pdf-converter-free-online-no"
+    },
+    {
+      "target": "https://www.yashipdf.online/blog/PLACEHOLDER_before-multiple-jpg-images.jpg",
+      "n": 1,
+      "sources": "https://www.yashipdf.online/blog/jpg-to-pdf-converter-free-online-no"
+    },
+    {
+      "target": "https://www.yashipdf.online/blog/PLACEHOLDER_step1-yashipdf-homepage.jpg",
+      "n": 1,
+      "sources": "https://www.yashipdf.online/blog/jpg-to-pdf-converter-free-online-no"
+    },
+    {
+      "target": "https://www.yashipdf.online/blog/PLACEHOLDER_step2-upload-jpg-images.jpg",
+      "n": 1,
+      "sources": "https://www.yashipdf.online/blog/jpg-to-pdf-converter-free-online-no"
+    },
+    {
+      "target": "https://www.yashipdf.online/blog/PLACEHOLDER_step3-convert-download-pdf.jpg",
+      "n": 1,
+      "sources": "https://www.yashipdf.online/blog/jpg-to-pdf-converter-free-online-no"
+    },
+    {
+      "target": "https://www.yashipdf.online/favicon.ico",
+      "n": 4,
+      "sources": "https://www.yashipdf.online/blog/how-to-create-a-clear-digital-signature-image-for-pdf-signing,https://www.yashipdf.online/blog/how-to-make-passport-size-photo-from-mobile,https://www.yashipdf.online/blog/how-to-remove-blank-pages-from-pdf-online-free,https://www.yashipdf.online/blog/how-to-resize-and-formulate-scanned-documents-for-csc-digital"
+    },
+    {
+      "target": "https://www.yashipdf.online/pdf-merger",
+      "n": 1,
+      "sources": "https://www.yashipdf.online/blog/jpg-to-pdf-converter-free-online-no"
+    },
+    {
+      "target": "https://www.yashipdf.online/pdf-to-jpg",
+      "n": 1,
+      "sources": "https://www.yashipdf.online/blog/jpg-to-pdf-converter-free-online-no"
+    },
+    {
+      "target": "https://www.yashipdf.online/pdf-to-jpg-converter",
+      "n": 3,
+      "sources": "https://www.yashipdf.online/blog/compress-image-to-50kb-online-free,https://www.yashipdf.online/blog/jpg-vs-png-which-format-should-you-use,https://www.yashipdf.online/blog/resize-image-to-200x230-pixels-online"
+    },
+    {
+      "target": "https://www.yashipdf.online/tools/",
+      "n": 2,
+      "sources": "https://www.yashipdf.online/blog/convert-photo-to-black-and-white-online,https://www.yashipdf.online/blog/how-to-improve-image-quality-online"
+    },
+    {
+      "target": "https://www.yashipdf.online/video-resizer",
+      "n": 1,
+      "sources": "https://www.yashipdf.online/blog/jpg-to-pdf-converter-free-online-no"
+    }
+  ],
+  "previous_run_10_404_direct_rechecks": {
+    "run_id": 10,
+    "result": "All 21 paths returned 404 on the previously completed direct sequential recheck; /tools/ first redirects and its destination is also 404.",
+    "urls": [
+      "https://www.yashipdf.online/assets/author-raju.jpg",
+      "https://www.yashipdf.online/blog/PLACEHOLDER_after-single-pdf-file.jpg",
+      "https://www.yashipdf.online/blog/PLACEHOLDER_before-multiple-jpg-images.jpg",
+      "https://www.yashipdf.online/blog/PLACEHOLDER_step1-yashipdf-homepage.jpg",
+      "https://www.yashipdf.online/blog/PLACEHOLDER_step2-upload-jpg-images.jpg",
+      "https://www.yashipdf.online/blog/PLACEHOLDER_step3-convert-download-pdf.jpg",
+      "https://www.yashipdf.online/blog/convert-tiff-to-gpj-online",
+      "https://www.yashipdf.online/blog/crop-image",
+      "https://www.yashipdf.online/blog/jpg-to-pdf-converter",
+      "https://www.yashipdf.online/compress-image-to-50kb-online-free",
+      "https://www.yashipdf.online/crop-image",
+      "https://www.yashipdf.online/favicon.ico",
+      "https://www.yashipdf.online/image-compressor",
+      "https://www.yashipdf.online/jpg-to-pdf-converter",
+      "https://www.yashipdf.online/pdf-merger",
+      "https://www.yashipdf.online/pdf-to-jpg",
+      "https://www.yashipdf.online/pdf-to-jpg-converter",
+      "https://www.yashipdf.online/png-to-jpg",
+      "https://www.yashipdf.online/resize-image-to-200x230-pixels-online",
+      "https://www.yashipdf.online/tools/",
+      "https://www.yashipdf.online/video-resizer"
+    ]
+  },
+  "verified_corrected_targets": {
+    "https://www.yashipdf.online/blog/convert-tiff-to-jpg-online": 200,
+    "https://www.yashipdf.online/crop": 200,
+    "https://www.yashipdf.online/img-pdf": 200,
+    "https://www.yashipdf.online/compress": 200,
+    "https://www.yashipdf.online/png-jpg": 200,
+    "https://www.yashipdf.online/resize": 200,
+    "https://www.yashipdf.online/favicon.png": 200
+  },
+  "limitation": "HTTP transfer percentiles are not Core Web Vitals. This report records the monitor DB and verified deployment metadata; protected preview pages were not bypassed."
+}

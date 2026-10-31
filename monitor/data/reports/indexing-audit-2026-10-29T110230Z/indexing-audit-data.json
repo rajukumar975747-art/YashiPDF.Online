@@ -1,0 +1,190 @@
+{
+  "generated_utc": "2026-10-29T110230Z",
+  "production_origin": "https://www.yashipdf.online",
+  "source_run_id": 12,
+  "source_run_started_utc": "2026-10-29T10:51:47+00:00",
+  "source_run_finished_utc": "2026-10-29T10:54:11+00:00",
+  "source_run_status": "complete",
+  "scope": {
+    "unique_discovered_urls": 111,
+    "urls_checked": 111,
+    "canonical_sitemap_html_pages": 94,
+    "successful_html_candidates_in_live_crawl": 96,
+    "unique_canonical_destinations": 94,
+    "repository_html_files": 94,
+    "repository_html_routes_exactly_match_local_sitemap": true,
+    "gsc_inspections": 0,
+    "gsc_inspection_coverage": "0/94; not authorized",
+    "gsc_urls_remaining": 94
+  },
+  "http_status_breakdown": {
+    "200": 99,
+    "404": 12
+  },
+  "live_sitemap": {
+    "robots_http": 200,
+    "sitemap_http": "200 (run completed; no sitemap fetch failure recorded)",
+    "sitemap_url_count": 94,
+    "local_sitemap_url_count": 94,
+    "local_xml_unique": true,
+    "sitemap_canonical_mismatches": 0,
+    "all_repository_sitemap_urls_returned_200_in_latest_crawl": true,
+    "latest_run_exact_live_vs_local_url_set_equality": "Not retained by monitor DB; prior direct exact-set comparison was run 11 (09:39–09:43 UTC), which matched 94/94."
+  },
+  "robots": {
+    "live_robots_http": 200,
+    "robots_policy_applied_during_crawl": true,
+    "discovered_robots_exclusions": 0,
+    "live_meta_noindex_findings": 0,
+    "live_x_robots_noindex_findings": 0,
+    "gsc_robots_verdict": "UNKNOWN — GSC authorization unavailable"
+  },
+  "canonical_and_redirects": {
+    "canonical_destination_count": 94,
+    "html_aliases": 2,
+    "redirect_chains": 3,
+    "canonical_mismatch_count": 0,
+    "redirect_url_list": [
+      {
+        "url": "https://www.yashipdf.online/blog/",
+        "final_url": "https://www.yashipdf.online/blog",
+        "chain": [
+          {
+            "status": 308,
+            "from": "https://www.yashipdf.online/blog/",
+            "to": "https://www.yashipdf.online/blog"
+          }
+        ],
+        "http_status": 200
+      },
+      {
+        "url": "https://www.yashipdf.online/blog/best-file-format-for-digital-documents",
+        "final_url": "https://www.yashipdf.online/blog/best%20file%20format%20for%20digital%20documents",
+        "chain": [
+          {
+            "status": 308,
+            "from": "https://www.yashipdf.online/blog/best-file-format-for-digital-documents",
+            "to": "https://www.yashipdf.online/blog/best%20file%20format%20for%20digital%20documents"
+          }
+        ],
+        "http_status": 200
+      },
+      {
+        "url": "https://www.yashipdf.online/tools/",
+        "final_url": "https://www.yashipdf.online/tools",
+        "chain": [
+          {
+            "status": 308,
+            "from": "https://www.yashipdf.online/tools/",
+            "to": "https://www.yashipdf.online/tools"
+          }
+        ],
+        "http_status": 404
+      }
+    ]
+  },
+  "issues_by_category": {
+    "broken_internal_link": 19,
+    "http": 12,
+    "malformed_internal_link": 1,
+    "metadata": 16,
+    "redirect": 3,
+    "sitemap_coverage": 2,
+    "structured_data": 13
+  },
+  "http_404_urls": [
+    "https://www.yashipdf.online/assets/author-raju.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_after-single-pdf-file.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_before-multiple-jpg-images.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_step1-yashipdf-homepage.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_step2-upload-jpg-images.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_step3-convert-download-pdf.jpg",
+    "https://www.yashipdf.online/favicon.ico",
+    "https://www.yashipdf.online/pdf-merger",
+    "https://www.yashipdf.online/pdf-to-jpg",
+    "https://www.yashipdf.online/pdf-to-jpg-converter",
+    "https://www.yashipdf.online/tools/",
+    "https://www.yashipdf.online/video-resizer"
+  ],
+  "missing_asset_404s": [
+    "https://www.yashipdf.online/assets/author-raju.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_after-single-pdf-file.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_before-multiple-jpg-images.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_step1-yashipdf-homepage.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_step2-upload-jpg-images.jpg",
+    "https://www.yashipdf.online/blog/PLACEHOLDER_step3-convert-download-pdf.jpg",
+    "https://www.yashipdf.online/favicon.ico"
+  ],
+  "missing_route_404s": [
+    "https://www.yashipdf.online/pdf-merger",
+    "https://www.yashipdf.online/pdf-to-jpg",
+    "https://www.yashipdf.online/pdf-to-jpg-converter",
+    "https://www.yashipdf.online/tools/",
+    "https://www.yashipdf.online/video-resizer"
+  ],
+  "broken_internal_link_references": 19,
+  "malformed_internal_link_findings": 1,
+  "structured_data_findings": 13,
+  "sitemap_coverage_findings": 2,
+  "orphan_pages_detected": 0,
+  "orphan_check_scope": "Successful HTML candidates in the exact crawl graph; sitemap membership was also checked. No candidate lacked an inbound crawled internal link.",
+  "content_quality": {
+    "article_review_queue_count": 71,
+    "word_count_min": 1300,
+    "word_count_max": 8182,
+    "classification": "Heuristic editorial review, not a confirmed search-engine quality or indexing decision."
+  },
+  "performance": {
+    "response_time_p50_ms": 984.0,
+    "response_time_p95_ms": 1734.0,
+    "signal": "Sequential fetch timing including body transfer; not Core Web Vitals. Browser runtime errors/field performance unavailable."
+  },
+  "integrations": {
+    "gsc": {
+      "status": "configured_not_connected",
+      "snapshot_at": "2026-10-29T10:54:11+00:00",
+      "inspected_urls": 0,
+      "metrics_rows": 0,
+      "real_indexed_or_nonindexed_counts": null,
+      "required_setup": [
+        "GOOGLE_CLIENT_ID",
+        "GOOGLE_CLIENT_SECRET",
+        "GOOGLE_REFRESH_TOKEN",
+        "GOOGLE_SEARCH_CONSOLE_SITE_URL"
+      ]
+    },
+    "bing": {
+      "status": "configured_not_connected",
+      "snapshot_at": "2026-10-29T10:54:11+00:00",
+      "metrics_rows": 0
+    }
+  },
+  "local_fixes": [
+    {
+      "file": "blog/lossy-vs-lossless-compression-explained.html",
+      "finding": "Footer anchor was truncated at href=\"https, and swallowed the closing markup.",
+      "change": "Restored a Contact link to the existing verified /contact destination; local PageParser now accepts all links/resources without malformed values.",
+      "state": "FIXED_LOCALLY; not preview or production verified",
+      "backup": "monitor/data/fix-backups/20261029T110020Z-lossy-vs-lossless.html.bak",
+      "diff": "monitor/data/fix-backups/20261029T110020Z-lossy-vs-lossless.diff"
+    }
+  ],
+  "tests": {
+    "monitor_unit_tests": "18 passed, 0 failed",
+    "python_compile": "passed",
+    "javascript_syntax": "passed",
+    "seo_source_audit": "94 HTML; 0 errors; 0 warnings",
+    "sitemap_xml": "94 unique URLs; exact route-set match with 94 repository HTML files",
+    "parser_regression": "malformed footer anchor absent after fix",
+    "git_diff_check": "passed"
+  },
+  "deployment": "No deploy or publish performed; local fix remains FIXED_LOCALLY.",
+  "coverage_limitations": [
+    "No authenticated GSC URL Inspection data; Google-specific indexing categories are unknown.",
+    "Bing account access is not connected.",
+    "robots.txt body was not retained in run summary; HTTP 200 and crawler-applied policy are evidenced, and repository robots rules were inspected.",
+    "HTTP/HTTPS and www/non-www variants were not directly tested in this run.",
+    "Mobile ?m=1 variants were not discovered/fetched; robots.txt repository rules disallow this query variant.",
+    "No browser automation, JavaScript runtime error collection, or Core Web Vitals data is available."
+  ]
+}

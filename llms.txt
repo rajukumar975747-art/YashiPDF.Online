@@ -2,6 +2,14 @@
 
 YashiPDF is a free online collection of image and PDF tools, with guides about image conversion, document handling, and preparing files for online forms. Files are processed in the browser except for PDF Lock, which sends the PDF and password to YashiPDF's server endpoint. See the Privacy Policy for details.
 
+## YashiPDF at a glance
+
+- YashiPDF offers 18 free tools linked from the homepage.
+- The tools cover 5 named file-format families: JPG/JPEG, PNG, WebP, HEIC/HEIF, and PDF.
+- The image compressor offers 20 KB and 50 KB preset targets, plus a custom size option.
+- 17 of 18 tools process files in the browser; PDF Lock sends the selected PDF and password to the server endpoint.
+- YashiPDF publishes 69 blog guides.
+
 ## Tools
 
 - [JPG to PNG](https://www.yashipdf.online/jpg-png): Convert JPG images to PNG.

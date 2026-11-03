@@ -1,0 +1,31 @@
+# YashiPDF
+
+YashiPDF is a free online collection of image and PDF tools, with guides about image conversion, document handling, and preparing files for online forms. Files are processed in the browser except for PDF Lock, which sends the PDF and password to YashiPDF's server endpoint. See the Privacy Policy for details.
+
+## Tools
+
+- [JPG to PNG](https://www.yashipdf.online/jpg-png): Convert JPG images to PNG.
+- [PNG to JPG](https://www.yashipdf.online/png-jpg): Convert PNG images to JPG.
+- [WebP to JPG](https://www.yashipdf.online/webp-jpg): Convert WebP images to JPG.
+- [HEIC to JPG](https://www.yashipdf.online/heic-jpg): Convert HEIC photos to JPG.
+- [Image Compressor](https://www.yashipdf.online/compress): Reduce image file size using a target size.
+- [Image Resizer](https://www.yashipdf.online/resize): Set an image's output dimensions.
+- [Image Cropper](https://www.yashipdf.online/crop): Crop an image to a selected area.
+- [Remove White Background](https://www.yashipdf.online/remove-bg): Make white image backgrounds transparent.
+- [Grayscale Filter](https://www.yashipdf.online/grayscale): Convert an image to grayscale.
+- [Blur Image](https://www.yashipdf.online/blur): Apply a blur effect to an image.
+- [Sepia Filter](https://www.yashipdf.online/sepia): Apply a sepia effect to an image.
+- [Invert Colors](https://www.yashipdf.online/invert): Invert the colors in an image.
+- [Images to PDF](https://www.yashipdf.online/img-pdf): Combine images into a PDF document.
+- [Split PDF](https://www.yashipdf.online/pdf-split): Extract a selected page from a PDF.
+- [Lock PDF](https://www.yashipdf.online/pdf-lock): Upload a PDF and password to YashiPDF's server endpoint for PDF protection.
+- [QR Generator](https://www.yashipdf.online/qr-gen): Create a QR code from text or a URL.
+- [Base64 to Image](https://www.yashipdf.online/base64-img): Decode Base64 image data into an image.
+- [Image to Base64](https://www.yashipdf.online/img-base64): Convert an image into Base64 text.
+
+## Site information
+
+- [About](https://www.yashipdf.online/about)
+- [Contact](https://www.yashipdf.online/contact)
+- [Privacy Policy](https://www.yashipdf.online/privacy)
+- [Terms](https://www.yashipdf.online/terms)

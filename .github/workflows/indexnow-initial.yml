@@ -1,0 +1,42 @@
+name: IndexNow initial sitemap submission
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Submit all current sitemap URLs once
+        required: true
+        type: choice
+        options:
+          - no
+          - yes
+        default: no
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-production
+  queue: max
+
+jobs:
+  initial-submit:
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'yes'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out full Git history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate integration
+        run: node --test scripts/indexnow.test.js
+
+      - name: Wait for the deployed sitemap pages and submit them once
+        run: node scripts/indexnow.js sitemap --wait

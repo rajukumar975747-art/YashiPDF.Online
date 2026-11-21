@@ -26,8 +26,8 @@ test('extracts sitemap URLs and maps every current entry through Vercel routing'
   const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
   const config = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
   const urls = api.extractSitemapUrls(sitemap);
-  assert.equal(urls.length, 93);
-  assert.equal(new Set(urls).size, 93);
+  assert.equal(urls.length, 94);
+  assert.equal(new Set(urls).size, 94);
   for (const url of urls) {
     const route = api.resolvePublicRoute(url, config, root);
     assert.equal(route.kind, 'file', url);
@@ -35,7 +35,7 @@ test('extracts sitemap URLs and maps every current entry through Vercel routing'
     assert.ok(route.file.endsWith('.html'), `${url} mapped to a non-HTML file`);
   }
   const initial = api.collectInitialUrls(root);
-  assert.equal(initial.items.length, 93);
+  assert.equal(initial.items.length, 94);
   assert.deepEqual(initial.skipped, []);
 });
 

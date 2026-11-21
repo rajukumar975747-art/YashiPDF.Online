@@ -31,8 +31,9 @@ function parseAttributes(source) {
 }
 
 function parseHtml(source) {
-  const result = { titles: [], descriptions: [], canonicals: [], h1: [], ids: [] };
+  const result = { doctypes: 0, htmlElements: 0, heads: 0, bodies: 0, titles: [], descriptions: [], canonicals: [], h1: [], ids: [] };
   let inHead = false;
+  let bodyStarted = false;
   let titleText = null;
   let headingText = null;
   let cursor = 0;
@@ -62,6 +63,11 @@ function parseHtml(source) {
     }
     if (end >= source.length) break;
     const rawTag = source.slice(opening + 1, end);
+    if (/^\s*!doctype\s+html\b/i.test(rawTag)) {
+      result.doctypes++;
+      cursor = end + 1;
+      continue;
+    }
     const closing = /^\s*\//.test(rawTag);
     const tagMatch = rawTag.match(/^\s*\/?\s*([a-z][\w:-]*)/i);
     if (!tagMatch) { cursor = end + 1; continue; }
@@ -81,8 +87,17 @@ function parseHtml(source) {
 
     const attributes = parseAttributes(rawTag);
     if (attributes.id) result.ids.push(attributes.id);
-    if (tag === 'head') inHead = true;
-    if (tag === 'title') titleText = '';
+    if (tag === 'html') result.htmlElements++;
+    if (tag === 'head') {
+      result.heads++;
+      inHead = !bodyStarted && result.heads === 1;
+    }
+    if (tag === 'body') {
+      result.bodies++;
+      bodyStarted = true;
+      inHead = false;
+    }
+    if (tag === 'title' && inHead) titleText = '';
     if (tag === 'h1') headingText = '';
     if (inHead && tag === 'meta' && attributes.name?.toLowerCase() === 'description') {
       result.descriptions.push(attributes.content || '');
@@ -121,6 +136,10 @@ for (const file of files) {
   const relative = path.relative(root, file).split(path.sep).join('/');
   const source = fs.readFileSync(file, 'utf8');
   const page = parseHtml(source);
+  if (page.doctypes !== 1) errors.push(`${relative}: expected exactly one HTML doctype, found ${page.doctypes}`);
+  if (page.htmlElements !== 1) errors.push(`${relative}: expected exactly one <html> element, found ${page.htmlElements}`);
+  if (page.heads !== 1) errors.push(`${relative}: expected exactly one <head> element, found ${page.heads}`);
+  if (page.bodies !== 1) errors.push(`${relative}: expected exactly one <body> element, found ${page.bodies}`);
   if (page.titles.length !== 1 || !page.titles[0]) errors.push(`${relative}: expected exactly one non-empty <title>, found ${page.titles.length}`);
   if (page.descriptions.length !== 1 || !page.descriptions[0].trim()) errors.push(`${relative}: expected exactly one non-empty meta description in <head>, found ${page.descriptions.length}`);
   if (page.canonicals.length !== 1) errors.push(`${relative}: expected exactly one canonical link in <head>, found ${page.canonicals.length}`);
